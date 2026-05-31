@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://byttgtxea025w"]
+
+[ext_resource type="Script" uid="uid://82pqs6yo2d17" path="res://Scripts/game_over.gd" id="1_ojehl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ojehl"]
+font_color = Color(0.7019608, 0.7254902, 0.81960785, 1)
+outline_size = 4
+outline_color = Color(0.023529412, 0.023529412, 0.03137255, 1)
+
+[node name="GameOver" type="Control" unique_id=1670157817]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ojehl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=493522041]
+layer = 2
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1771242788]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -50.0
+offset_right = 90.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BaseMenuScreen" type="MarginContainer" parent="CanvasLayer/MarginContainer" unique_id=1027981614]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/BaseMenuScreen" unique_id=28843577]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = -3
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer" unique_id=535693865]
+custom_minimum_size = Vector2(100, 21)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel2" unique_id=228514416]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 18.0
+grow_horizontal = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_ojehl")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer" unique_id=120673074]
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel" unique_id=408787443]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel/MarginContainer" unique_id=696069153]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Respawn" type="Button" parent="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1199273243]
+custom_minimum_size = Vector2(70, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "REBOOT"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=851886037]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Restart" type="Button" parent="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1994258077]
+custom_minimum_size = Vector2(70, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "RESTART"
+
+[node name="Items" type="Button" parent="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=59036421]
+custom_minimum_size = Vector2(70, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "ITEMS"
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1101890039]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Settings" type="Button" parent="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=973389]
+custom_minimum_size = Vector2(70, 20)
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="Quit" type="Button" parent="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1572503499]
+custom_minimum_size = Vector2(70, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "EXIT"
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel/MarginContainer/VBoxContainer/Respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Items" to="." method="_on_items_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer2/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/BaseMenuScreen/VBoxContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer2/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ccje7dex6ynx5"]
+
+[ext_resource type="Texture2D" uid="uid://dpa07ymw2rwwo" path="res://droid knight/sprites/spikes.png" id="1_gwqs2"]
+[ext_resource type="PackedScene" uid="uid://badlnflon5r3u" path="res://Scenes/fall_zone.tscn" id="2_0qgod"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvr35"]
+size = Vector2(12, 6)
+
+[node name="Spikes" type="StaticBody2D" unique_id=1152737751]
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=693038826]
+position = Vector2(0, -4)
+texture = ExtResource("1_gwqs2")
+
+[node name="FallZone" parent="." unique_id=1992427186 instance=ExtResource("2_0qgod")]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone" unique_id=2041167121]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_qvr35")

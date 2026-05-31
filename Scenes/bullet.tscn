@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://2j1dw80i6afd"]
+
+[ext_resource type="Script" uid="uid://bekk0lbabaage" path="res://Scripts/bullet.gd" id="1_6afsh"]
+[ext_resource type="Texture2D" uid="uid://k74dqs2ynky1" path="res://droid knight/sprites/bullet.png" id="2_odot3"]
+[ext_resource type="PackedScene" uid="uid://cjirtotgw7k5r" path="res://Scenes/hitbox.tscn" id="3_t8o6v"]
+[ext_resource type="PackedScene" uid="uid://dmty8mcwiu8uo" path="res://Scenes/explosion.tscn" id="4_qttmj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yjaco"]
+radius = 3.9999819
+height = 9.999955
+
+[sub_resource type="Curve" id="Curve_40cdi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="bullet" type="Area2D" unique_id=1858471120 node_paths=PackedStringArray("explosion")]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_6afsh")
+explosion = NodePath("explosion")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1922317690]
+position = Vector2(1, 0)
+rotation = 1.5678607
+shape = SubResource("CapsuleShape2D_yjaco")
+debug_color = Color(0, 0.6047973, 0.6735358, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=744844334]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+texture = ExtResource("2_odot3")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=904297959]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+amount = 16
+lifetime = 0.09999999999999999
+emission_shape = 6
+emission_ring_inner_radius = 0.8
+emission_ring_radius = 3.0
+particle_flag_align_y = true
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+linear_accel_min = 200.0
+linear_accel_max = 400.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_40cdi")
+color = Color(0.4509804, 0.9372549, 0.9098039, 1)
+
+[node name="Hitbox" parent="." unique_id=928187453 instance=ExtResource("3_t8o6v")]
+collision_layer = 8
+collision_mask = 4
+damage = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=370813708]
+position = Vector2(0.99999905, 0)
+rotation = 1.5678607
+shape = SubResource("CapsuleShape2D_yjaco")
+debug_color = Color(1, 0.0067823445, 0.0772912, 0.41960785)
+
+[node name="explosion" parent="." unique_id=1989496051 instance=ExtResource("4_qttmj")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1817292967]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c4vib1knkjwmx"]
+
+[ext_resource type="Texture2D" uid="uid://c8ovgs5nuknhh" path="res://droid knight/sprites/Treadmil.png" id="1_aekwg"]
+[ext_resource type="Script" uid="uid://bgvfai0gdkeh" path="res://Scripts/treadmill.gd" id="1_wunlw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aekwg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aekwg"]
+atlas = ExtResource("1_aekwg")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wunlw"]
+atlas = ExtResource("1_aekwg")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1lvnl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aekwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wunlw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77w0d"]
+size = Vector2(32, 8)
+
+[node name="Treadmill" type="StaticBody2D" unique_id=1714616393]
+collision_layer = 2
+collision_mask = 12
+physics_material_override = SubResource("PhysicsMaterial_aekwg")
+script = ExtResource("1_wunlw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=527398336]
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_1lvnl")
+autoplay = "default"
+frame_progress = 0.681879
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1064678796]
+z_index = 1
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_77w0d")

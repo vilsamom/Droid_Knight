@@ -1,0 +1,1241 @@
+[gd_scene format=3 uid="uid://c2pkemfsgvr3v"]
+
+[ext_resource type="PackedScene" uid="uid://dineneyfb0rwr" path="res://Scenes/stage1_background..scn" id="1_g2yki"]
+[ext_resource type="AudioStream" uid="uid://bj83kvyy4drcs" path="res://droid knight/music/cyber1.wav" id="1_ghn5e"]
+[ext_resource type="Script" uid="uid://ci66aknyqi5am" path="res://Scripts/stage_clear.gd" id="1_tkcff"]
+[ext_resource type="PackedScene" uid="uid://c7vs5614ehj4d" path="res://Scenes/stage1_tile_map.scn" id="2_wp4it"]
+[ext_resource type="Script" uid="uid://0kqwy1of22ja" path="res://Scripts/checkpoint_manager.gd" id="5_adl2h"]
+[ext_resource type="PackedScene" uid="uid://bq4x48flsasmd" path="res://Scenes/player.tscn" id="7_sfwwm"]
+[ext_resource type="PackedScene" uid="uid://d3pks3cnbfk6o" path="res://Scenes/platform.tscn" id="9_wp4it"]
+[ext_resource type="PackedScene" uid="uid://c5jan3i36mdkf" path="res://Scenes/door.tscn" id="10_tfjjj"]
+[ext_resource type="Script" uid="uid://bs33or2213vuy" path="res://Scripts/fall_zone.gd" id="11_g2yki"]
+[ext_resource type="PackedScene" uid="uid://ck6h3d0cxw7i2" path="res://Scenes/enemy_room.tscn" id="11_tfjjj"]
+[ext_resource type="PackedScene" uid="uid://bdyb0k6uw3bnq" path="res://Scenes/lever.tscn" id="12_g2yki"]
+[ext_resource type="PackedScene" uid="uid://dd7ov821lo7wv" path="res://Scenes/reset_point.tscn" id="12_knpwr"]
+[ext_resource type="PackedScene" uid="uid://ccje7dex6ynx5" path="res://Scenes/spikes.tscn" id="13_knpwr"]
+[ext_resource type="PackedScene" uid="uid://dwl0syqlyvfjg" path="res://Scenes/rotating_platform.tscn" id="14_rjeum"]
+[ext_resource type="Script" uid="uid://17so0q8s74kk" path="res://Scripts/camera_bounds.gd" id="15_5w8o0"]
+[ext_resource type="PackedScene" uid="uid://nwe7hkvhu38v" path="res://Scenes/walker.tscn" id="15_37gc6"]
+[ext_resource type="PackedScene" uid="uid://d3nbenqibx5qe" path="res://Scenes/surveyer.tscn" id="16_o04gq"]
+[ext_resource type="PackedScene" uid="uid://brbo1kjcuvs1q" path="res://Scenes/chopper.tscn" id="17_ydlij"]
+[ext_resource type="PackedScene" uid="uid://d4d8weqpud3oh" path="res://Scenes/checkpoint.tscn" id="18_o04gq"]
+[ext_resource type="PackedScene" uid="uid://c5juto5xmeagm" path="res://Scenes/charger.tscn" id="18_v1wpk"]
+[ext_resource type="PackedScene" uid="uid://b5osaipj28uxd" path="res://Scenes/turret.tscn" id="19_ydlij"]
+
+[sub_resource type="Curve2D" id="Curve2D_g2yki"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 192)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_knpwr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 192, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_rjeum"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1216, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_5w8o0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -704)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_37gc6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 689, 0, 0, 0, 0, 0, 689, 336)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2yki"]
+size = Vector2(292, 159)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37gc6"]
+size = Vector2(294, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knpwr"]
+size = Vector2(461, 179)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjeum"]
+size = Vector2(296, 165)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o04gq"]
+size = Vector2(582, 221.00002)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydlij"]
+size = Vector2(524, 234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dyre"]
+size = Vector2(585.9995, 270.71582)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5w8o0"]
+size = Vector2(1076, 549)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfjjj"]
+size = Vector2(964, 261)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejxu4"]
+size = Vector2(323, 575)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1wpk"]
+size = Vector2(1618, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghn5e"]
+size = Vector2(1340, 270.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkcff"]
+size = Vector2(497, 226)
+
+[node name="Stage1" type="Node2D" unique_id=717044413]
+
+[node name="StageClearTrigger" type="Node" parent="." unique_id=1199531048 node_paths=PackedStringArray("enemy_room", "target_door")]
+script = ExtResource("1_tkcff")
+enemy_room = NodePath("../Switches/EnemyRoom7")
+target_door = NodePath("../Doors/door10")
+metadata/_custom_type_script = "uid://ci66aknyqi5am"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1999395268]
+color = Color(0.7145643, 0.64295655, 0.83540225, 1)
+
+[node name="ParallaxBackground" parent="." unique_id=1044629944 instance=ExtResource("1_g2yki")]
+
+[node name="TileMap" parent="." unique_id=1328414460 instance=ExtResource("2_wp4it")]
+position = Vector2(4, -91)
+
+[node name="Player" parent="." unique_id=116691589 instance=ExtResource("7_sfwwm")]
+position = Vector2(-1427, -60)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player" unique_id=1692661183]
+stream = ExtResource("1_ghn5e")
+autoplay = true
+
+[node name="CheckpointManager" type="Node" parent="." unique_id=2115097432]
+script = ExtResource("5_adl2h")
+metadata/_custom_type_script = "uid://0kqwy1of22ja"
+
+[node name="checkpoint" parent="CheckpointManager" unique_id=652573312 instance=ExtResource("18_o04gq")]
+position = Vector2(-1370, -43)
+active = true
+
+[node name="checkpoint2" parent="CheckpointManager" unique_id=824301306 instance=ExtResource("18_o04gq")]
+position = Vector2(916, 229)
+
+[node name="checkpoint3" parent="CheckpointManager" unique_id=1822348947 instance=ExtResource("18_o04gq")]
+position = Vector2(5365, -139)
+
+[node name="checkpoint4" parent="CheckpointManager" unique_id=955890278 instance=ExtResource("18_o04gq")]
+position = Vector2(9260, 357)
+
+[node name="checkpoint5" parent="CheckpointManager" unique_id=160091414 instance=ExtResource("18_o04gq")]
+position = Vector2(11276, 1349)
+
+[node name="platforms" type="Node" parent="." unique_id=950815738]
+
+[node name="Platform" parent="platforms" unique_id=1282885316 node_paths=PackedStringArray("target_lever") instance=ExtResource("9_wp4it")]
+position = Vector2(1084, -23)
+curve = SubResource("Curve2D_g2yki")
+station_wait_time = 2.0
+target_lever = NodePath("../../Switches/EnemyRoom3")
+starting_state = 0
+
+[node name="Platform2" parent="platforms" unique_id=648595175 instance=ExtResource("9_wp4it")]
+position = Vector2(1132, 169)
+curve = SubResource("Curve2D_knpwr")
+
+[node name="Platform3" parent="platforms" unique_id=1252488306 node_paths=PackedStringArray("target_lever") instance=ExtResource("9_wp4it")]
+position = Vector2(3148, 361)
+curve = SubResource("Curve2D_rjeum")
+station_wait_time = 3.0
+target_lever = NodePath("../../Switches/lever2")
+starting_state = 0
+
+[node name="Platform4" parent="platforms" unique_id=1614310295 node_paths=PackedStringArray("target_lever") instance=ExtResource("9_wp4it")]
+position = Vector2(3500, 361)
+curve = SubResource("Curve2D_5w8o0")
+station_wait_time = 2.0
+target_lever = NodePath("../../Switches/lever3")
+starting_state = 0
+
+[node name="Platform5" parent="platforms" unique_id=1832097828 node_paths=PackedStringArray("target_lever") instance=ExtResource("9_wp4it")]
+position = Vector2(8364, 601)
+curve = SubResource("Curve2D_37gc6")
+station_wait_time = 3.0
+target_lever = NodePath("../../Switches/EnemyRoom5")
+starting_state = 0
+
+[node name="Doors" type="Node" parent="." unique_id=500671257]
+
+[node name="door" parent="Doors" unique_id=791406303 instance=ExtResource("10_tfjjj")]
+position = Vector2(419, 141)
+starting_state = 1
+
+[node name="door2" parent="Doors" unique_id=1088836888 node_paths=PackedStringArray("target_lever") instance=ExtResource("10_tfjjj")]
+position = Vector2(724, 205)
+target_lever = NodePath("../../Switches/EnemyRoom")
+
+[node name="door3" parent="Doors" unique_id=819606459 node_paths=PackedStringArray("target_lever") instance=ExtResource("10_tfjjj")]
+position = Vector2(964, 205)
+target_lever = NodePath("../../Switches/lever")
+
+[node name="door4" parent="Doors" unique_id=932016419 node_paths=PackedStringArray("target_lever") instance=ExtResource("10_tfjjj")]
+position = Vector2(1044, 205)
+target_lever = NodePath("../../Switches/EnemyRoom2")
+
+[node name="door5" parent="Doors" unique_id=1610176192 node_paths=PackedStringArray("target_lever") instance=ExtResource("10_tfjjj")]
+position = Vector2(7940, 125)
+target_lever = NodePath("../../Switches/EnemyRoom4")
+
+[node name="door6" parent="Doors" unique_id=1596966346 node_paths=PackedStringArray("target_lever") instance=ExtResource("10_tfjjj")]
+position = Vector2(9108, 333)
+target_lever = NodePath("../../Switches/lever4")
+
+[node name="door7" parent="Doors" unique_id=809150443 node_paths=PackedStringArray("target_lever") instance=ExtResource("10_tfjjj")]
+position = Vector2(9108, 1228)
+target_lever = NodePath("../../Switches/EnemyRoom6")
+
+[node name="door9" parent="Doors" unique_id=404970842 node_paths=PackedStringArray("target_lever") instance=ExtResource("10_tfjjj")]
+position = Vector2(11204, 1325)
+target_lever = NodePath("../../Switches/lever5")
+
+[node name="door10" parent="Doors" unique_id=377946205 instance=ExtResource("10_tfjjj")]
+position = Vector2(11635, 2445)
+
+[node name="Switches" type="Node" parent="." unique_id=1971590723]
+
+[node name="EnemyRoom" parent="Switches" unique_id=883965975 instance=ExtResource("11_tfjjj")]
+position = Vector2(579, 261)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switches/EnemyRoom" unique_id=1770728208]
+position = Vector2(-1, -104.5)
+shape = SubResource("RectangleShape2D_g2yki")
+
+[node name="EnemyRoom3" parent="Switches" unique_id=1791453539 instance=ExtResource("11_tfjjj")]
+position = Vector2(968, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switches/EnemyRoom3" unique_id=844035579]
+position = Vector2(8, -72)
+shape = SubResource("RectangleShape2D_37gc6")
+
+[node name="EnemyRoom2" parent="Switches" unique_id=883029813 instance=ExtResource("11_tfjjj")]
+position = Vector2(1249, 255)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switches/EnemyRoom2" unique_id=2012491457]
+position = Vector2(26, -106)
+shape = SubResource("RectangleShape2D_knpwr")
+
+[node name="EnemyRoom4" parent="Switches" unique_id=280826164 instance=ExtResource("11_tfjjj")]
+position = Vector2(7796, 181)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switches/EnemyRoom4" unique_id=517227301]
+position = Vector2(-4, -98.5)
+shape = SubResource("RectangleShape2D_rjeum")
+
+[node name="EnemyRoom5" parent="Switches" unique_id=603941339 instance=ExtResource("11_tfjjj")]
+position = Vector2(8577, 757)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switches/EnemyRoom5" unique_id=1148843217]
+position = Vector2(10, -174)
+shape = SubResource("RectangleShape2D_o04gq")
+
+[node name="EnemyRoom6" parent="Switches" unique_id=837486062 instance=ExtResource("11_tfjjj")]
+position = Vector2(8848, 1330)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switches/EnemyRoom6" unique_id=1099838444]
+position = Vector2(-1, -178)
+shape = SubResource("RectangleShape2D_ydlij")
+
+[node name="lever" parent="Switches" unique_id=859613761 instance=ExtResource("12_g2yki")]
+position = Vector2(828, 213)
+
+[node name="lever2" parent="Switches" unique_id=299093306 instance=ExtResource("12_g2yki")]
+position = Vector2(2044, -123)
+
+[node name="lever3" parent="Switches" unique_id=908388750 instance=ExtResource("12_g2yki")]
+position = Vector2(3540, 341)
+
+[node name="lever4" parent="Switches" unique_id=90150293 instance=ExtResource("12_g2yki")]
+position = Vector2(9068, -123)
+
+[node name="lever5" parent="Switches" unique_id=1739496118 instance=ExtResource("12_g2yki")]
+position = Vector2(10252, 1045)
+
+[node name="EnemyRoom7" parent="Switches" unique_id=798632422 instance=ExtResource("11_tfjjj")]
+position = Vector2(11340.103, 2559.501)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switches/EnemyRoom7" unique_id=679140889]
+position = Vector2(13.897461, -135.50098)
+shape = SubResource("RectangleShape2D_6dyre")
+
+[node name="FallZones" type="Node" parent="." unique_id=356035412]
+
+[node name="FallZone" type="Area2D" parent="FallZones" unique_id=2064579349]
+position = Vector2(-123, 477)
+collision_mask = 12
+script = ExtResource("11_g2yki")
+metadata/_custom_type_script = "uid://bs33or2213vuy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZones/FallZone" unique_id=460618809]
+position = Vector2(-38, 141.5)
+shape = SubResource("RectangleShape2D_5w8o0")
+
+[node name="FallZone2" type="Area2D" parent="FallZones" unique_id=1448805103]
+position = Vector2(4362, 344)
+collision_mask = 12
+script = ExtResource("11_g2yki")
+metadata/_custom_type_script = "uid://bs33or2213vuy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZones/FallZone2" unique_id=705943318]
+position = Vector2(-39, -18)
+shape = SubResource("RectangleShape2D_tfjjj")
+
+[node name="FallZone3" type="Area2D" parent="FallZones" unique_id=289166572]
+position = Vector2(7585, 351)
+collision_mask = 12
+script = ExtResource("11_g2yki")
+metadata/_custom_type_script = "uid://bs33or2213vuy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZones/FallZone3" unique_id=743836678]
+position = Vector2(70, 289)
+shape = SubResource("RectangleShape2D_ejxu4")
+
+[node name="ResetPoints" type="Node" parent="." unique_id=766027742]
+
+[node name="reset_point" parent="ResetPoints" unique_id=1884505472 instance=ExtResource("12_knpwr")]
+position = Vector2(-676, -59)
+
+[node name="reset_point2" parent="ResetPoints" unique_id=1077440976 instance=ExtResource("12_knpwr")]
+position = Vector2(330, 165)
+
+[node name="reset_point3" parent="ResetPoints" unique_id=1767270260 instance=ExtResource("12_knpwr")]
+position = Vector2(395, -59)
+
+[node name="reset_point4" parent="ResetPoints" unique_id=2014216925 instance=ExtResource("12_knpwr")]
+position = Vector2(1488, 165)
+
+[node name="reset_point5" parent="ResetPoints" unique_id=469456777 instance=ExtResource("12_knpwr")]
+position = Vector2(1812, 325)
+
+[node name="reset_point6" parent="ResetPoints" unique_id=1518729028 instance=ExtResource("12_knpwr")]
+position = Vector2(3208, 357)
+
+[node name="reset_point7" parent="ResetPoints" unique_id=1843073131 instance=ExtResource("12_knpwr")]
+position = Vector2(3871, -347)
+
+[node name="reset_point8" parent="ResetPoints" unique_id=2020490977 instance=ExtResource("12_knpwr")]
+position = Vector2(4810, -43)
+
+[node name="reset_point9" parent="ResetPoints" unique_id=1455835450 instance=ExtResource("12_knpwr")]
+position = Vector2(7503, 117)
+
+[node name="reset_point10" parent="ResetPoints" unique_id=753073658 instance=ExtResource("12_knpwr")]
+position = Vector2(7692, 149)
+
+[node name="reset_point11" parent="ResetPoints" unique_id=1740044972 instance=ExtResource("12_knpwr")]
+position = Vector2(9500, 1301)
+
+[node name="reset_point12" parent="ResetPoints" unique_id=1736383909 instance=ExtResource("12_knpwr")]
+position = Vector2(10939, 1349)
+
+[node name="reset_point13" parent="ResetPoints" unique_id=533050089 instance=ExtResource("12_knpwr")]
+position = Vector2(8244, 677)
+
+[node name="reset_point14" parent="ResetPoints" unique_id=1578108298 instance=ExtResource("12_knpwr")]
+position = Vector2(2581, 405)
+
+[node name="reset_point15" parent="ResetPoints" unique_id=549017658 instance=ExtResource("12_knpwr")]
+position = Vector2(2900, 309)
+
+[node name="SpikeTraps" type="Node" parent="." unique_id=1841372981]
+
+[node name="Spikes" parent="SpikeTraps" unique_id=1152737751 instance=ExtResource("13_knpwr")]
+position = Vector2(1516, 421)
+
+[node name="Spikes2" parent="SpikeTraps" unique_id=1794303666 instance=ExtResource("13_knpwr")]
+position = Vector2(1532, 421)
+
+[node name="Spikes3" parent="SpikeTraps" unique_id=821864508 instance=ExtResource("13_knpwr")]
+position = Vector2(1548, 421)
+
+[node name="Spikes4" parent="SpikeTraps" unique_id=823804902 instance=ExtResource("13_knpwr")]
+position = Vector2(1564, 421)
+
+[node name="Spikes5" parent="SpikeTraps" unique_id=1441147071 instance=ExtResource("13_knpwr")]
+position = Vector2(1580, 421)
+
+[node name="Spikes6" parent="SpikeTraps" unique_id=1969832685 instance=ExtResource("13_knpwr")]
+position = Vector2(1596, 421)
+
+[node name="Spikes7" parent="SpikeTraps" unique_id=1680356239 instance=ExtResource("13_knpwr")]
+position = Vector2(1612, 421)
+
+[node name="Spikes8" parent="SpikeTraps" unique_id=96198953 instance=ExtResource("13_knpwr")]
+position = Vector2(1628, 421)
+
+[node name="Spikes9" parent="SpikeTraps" unique_id=1118601352 instance=ExtResource("13_knpwr")]
+position = Vector2(1644, 421)
+
+[node name="Spikes10" parent="SpikeTraps" unique_id=1374179394 instance=ExtResource("13_knpwr")]
+position = Vector2(1660, 421)
+
+[node name="Spikes11" parent="SpikeTraps" unique_id=830843577 instance=ExtResource("13_knpwr")]
+position = Vector2(1676, 421)
+
+[node name="Spikes12" parent="SpikeTraps" unique_id=744658935 instance=ExtResource("13_knpwr")]
+position = Vector2(1692, 421)
+
+[node name="Spikes13" parent="SpikeTraps" unique_id=287548660 instance=ExtResource("13_knpwr")]
+position = Vector2(1708, 421)
+
+[node name="Spikes14" parent="SpikeTraps" unique_id=2116591648 instance=ExtResource("13_knpwr")]
+position = Vector2(1724, 421)
+
+[node name="Spikes15" parent="SpikeTraps" unique_id=1248781442 instance=ExtResource("13_knpwr")]
+position = Vector2(1740, 421)
+
+[node name="Spikes16" parent="SpikeTraps" unique_id=521999569 instance=ExtResource("13_knpwr")]
+position = Vector2(1756, 421)
+
+[node name="Spikes17" parent="SpikeTraps" unique_id=1190840350 instance=ExtResource("13_knpwr")]
+position = Vector2(1772, 421)
+
+[node name="Spikes18" parent="SpikeTraps" unique_id=1744366303 instance=ExtResource("13_knpwr")]
+position = Vector2(1788, 421)
+
+[node name="Spikes19" parent="SpikeTraps" unique_id=445433022 instance=ExtResource("13_knpwr")]
+position = Vector2(1804, 421)
+
+[node name="Spikes20" parent="SpikeTraps" unique_id=1256318260 instance=ExtResource("13_knpwr")]
+position = Vector2(1820, 421)
+
+[node name="Spikes21" parent="SpikeTraps" unique_id=1954704884 instance=ExtResource("13_knpwr")]
+position = Vector2(1836, 421)
+
+[node name="Spikes22" parent="SpikeTraps" unique_id=1604771826 instance=ExtResource("13_knpwr")]
+position = Vector2(1852, 421)
+
+[node name="Spikes23" parent="SpikeTraps" unique_id=162913505 instance=ExtResource("13_knpwr")]
+position = Vector2(1868, 421)
+
+[node name="Spikes24" parent="SpikeTraps" unique_id=706452819 instance=ExtResource("13_knpwr")]
+position = Vector2(1884, 421)
+
+[node name="Spikes25" parent="SpikeTraps" unique_id=174529845 instance=ExtResource("13_knpwr")]
+position = Vector2(1900, 421)
+
+[node name="Spikes26" parent="SpikeTraps" unique_id=1393174969 instance=ExtResource("13_knpwr")]
+position = Vector2(1916, 421)
+
+[node name="Spikes27" parent="SpikeTraps" unique_id=167270707 instance=ExtResource("13_knpwr")]
+position = Vector2(1932, 421)
+
+[node name="Spikes28" parent="SpikeTraps" unique_id=412947998 instance=ExtResource("13_knpwr")]
+position = Vector2(1948, 421)
+
+[node name="Spikes29" parent="SpikeTraps" unique_id=1250978424 instance=ExtResource("13_knpwr")]
+position = Vector2(1964, 421)
+
+[node name="Spikes30" parent="SpikeTraps" unique_id=1989831168 instance=ExtResource("13_knpwr")]
+position = Vector2(1980, 421)
+
+[node name="Spikes31" parent="SpikeTraps" unique_id=1258869454 instance=ExtResource("13_knpwr")]
+position = Vector2(1996, 421)
+
+[node name="Spikes32" parent="SpikeTraps" unique_id=1009338066 instance=ExtResource("13_knpwr")]
+position = Vector2(2012, 421)
+
+[node name="Spikes33" parent="SpikeTraps" unique_id=1006116669 instance=ExtResource("13_knpwr")]
+position = Vector2(2028, 421)
+
+[node name="Spikes34" parent="SpikeTraps" unique_id=486783576 instance=ExtResource("13_knpwr")]
+position = Vector2(2044, 421)
+
+[node name="Spikes35" parent="SpikeTraps" unique_id=1646724781 instance=ExtResource("13_knpwr")]
+position = Vector2(2060, 421)
+
+[node name="Spikes36" parent="SpikeTraps" unique_id=70374925 instance=ExtResource("13_knpwr")]
+position = Vector2(2076, 421)
+
+[node name="Spikes37" parent="SpikeTraps" unique_id=734130498 instance=ExtResource("13_knpwr")]
+position = Vector2(2092, 421)
+
+[node name="Spikes38" parent="SpikeTraps" unique_id=1080264466 instance=ExtResource("13_knpwr")]
+position = Vector2(2108, 421)
+
+[node name="Spikes39" parent="SpikeTraps" unique_id=683847210 instance=ExtResource("13_knpwr")]
+position = Vector2(2124, 421)
+
+[node name="Spikes40" parent="SpikeTraps" unique_id=1134776424 instance=ExtResource("13_knpwr")]
+position = Vector2(2140, 421)
+
+[node name="Spikes41" parent="SpikeTraps" unique_id=211695586 instance=ExtResource("13_knpwr")]
+position = Vector2(2156, 421)
+
+[node name="Spikes42" parent="SpikeTraps" unique_id=703097431 instance=ExtResource("13_knpwr")]
+position = Vector2(2172, 421)
+
+[node name="Spikes43" parent="SpikeTraps" unique_id=54551039 instance=ExtResource("13_knpwr")]
+position = Vector2(2188, 421)
+
+[node name="Spikes44" parent="SpikeTraps" unique_id=1427892989 instance=ExtResource("13_knpwr")]
+position = Vector2(2204, 421)
+
+[node name="Spikes45" parent="SpikeTraps" unique_id=123069078 instance=ExtResource("13_knpwr")]
+position = Vector2(2220, 421)
+
+[node name="Spikes46" parent="SpikeTraps" unique_id=1066608624 instance=ExtResource("13_knpwr")]
+position = Vector2(2236, 421)
+
+[node name="Spikes47" parent="SpikeTraps" unique_id=1843509302 instance=ExtResource("13_knpwr")]
+position = Vector2(2252, 421)
+
+[node name="Spikes48" parent="SpikeTraps" unique_id=1095761897 instance=ExtResource("13_knpwr")]
+position = Vector2(2268, 421)
+
+[node name="Spikes49" parent="SpikeTraps" unique_id=1416626921 instance=ExtResource("13_knpwr")]
+position = Vector2(2284, 421)
+
+[node name="Spikes50" parent="SpikeTraps" unique_id=2003271727 instance=ExtResource("13_knpwr")]
+position = Vector2(2300, 421)
+
+[node name="Spikes51" parent="SpikeTraps" unique_id=512486697 instance=ExtResource("13_knpwr")]
+position = Vector2(2316, 421)
+
+[node name="Spikes52" parent="SpikeTraps" unique_id=1270658679 instance=ExtResource("13_knpwr")]
+position = Vector2(2332, 421)
+
+[node name="Spikes53" parent="SpikeTraps" unique_id=1141171973 instance=ExtResource("13_knpwr")]
+position = Vector2(2348, 421)
+
+[node name="Spikes54" parent="SpikeTraps" unique_id=950223150 instance=ExtResource("13_knpwr")]
+position = Vector2(2364, 421)
+
+[node name="Spikes55" parent="SpikeTraps" unique_id=1552073735 instance=ExtResource("13_knpwr")]
+position = Vector2(2380, 421)
+
+[node name="Spikes56" parent="SpikeTraps" unique_id=722129813 instance=ExtResource("13_knpwr")]
+position = Vector2(2396, 421)
+
+[node name="Spikes85" parent="SpikeTraps" unique_id=1425377799 instance=ExtResource("13_knpwr")]
+position = Vector2(2412, 421)
+
+[node name="Spikes86" parent="SpikeTraps" unique_id=667863969 instance=ExtResource("13_knpwr")]
+position = Vector2(2428, 421)
+
+[node name="Spikes87" parent="SpikeTraps" unique_id=1786147362 instance=ExtResource("13_knpwr")]
+position = Vector2(2444, 421)
+
+[node name="Spikes88" parent="SpikeTraps" unique_id=934241318 instance=ExtResource("13_knpwr")]
+position = Vector2(2460, 421)
+
+[node name="Spikes89" parent="SpikeTraps" unique_id=1432803755 instance=ExtResource("13_knpwr")]
+position = Vector2(2476, 421)
+
+[node name="Spikes102" parent="SpikeTraps" unique_id=1636991415 instance=ExtResource("13_knpwr")]
+position = Vector2(9452, 1461)
+
+[node name="Spikes103" parent="SpikeTraps" unique_id=599830639 instance=ExtResource("13_knpwr")]
+position = Vector2(9468, 1461)
+
+[node name="Spikes104" parent="SpikeTraps" unique_id=1727248076 instance=ExtResource("13_knpwr")]
+position = Vector2(9484, 1461)
+
+[node name="Spikes105" parent="SpikeTraps" unique_id=1998335413 instance=ExtResource("13_knpwr")]
+position = Vector2(9500, 1461)
+
+[node name="Spikes106" parent="SpikeTraps" unique_id=1810411158 instance=ExtResource("13_knpwr")]
+position = Vector2(9516, 1461)
+
+[node name="Spikes107" parent="SpikeTraps" unique_id=1422268033 instance=ExtResource("13_knpwr")]
+position = Vector2(9532, 1461)
+
+[node name="Spikes108" parent="SpikeTraps" unique_id=1686124893 instance=ExtResource("13_knpwr")]
+position = Vector2(9548, 1461)
+
+[node name="Spikes109" parent="SpikeTraps" unique_id=321579239 instance=ExtResource("13_knpwr")]
+position = Vector2(9564, 1461)
+
+[node name="Spikes110" parent="SpikeTraps" unique_id=4342981 instance=ExtResource("13_knpwr")]
+position = Vector2(9580, 1461)
+
+[node name="Spikes111" parent="SpikeTraps" unique_id=1565664797 instance=ExtResource("13_knpwr")]
+position = Vector2(9596, 1461)
+
+[node name="Spikes112" parent="SpikeTraps" unique_id=264204651 instance=ExtResource("13_knpwr")]
+position = Vector2(9612, 1461)
+
+[node name="Spikes113" parent="SpikeTraps" unique_id=504402262 instance=ExtResource("13_knpwr")]
+position = Vector2(9628, 1461)
+
+[node name="Spikes114" parent="SpikeTraps" unique_id=1523853948 instance=ExtResource("13_knpwr")]
+position = Vector2(9644, 1461)
+
+[node name="Spikes115" parent="SpikeTraps" unique_id=638367651 instance=ExtResource("13_knpwr")]
+position = Vector2(9660, 1461)
+
+[node name="Spikes116" parent="SpikeTraps" unique_id=2093665418 instance=ExtResource("13_knpwr")]
+position = Vector2(9676, 1461)
+
+[node name="Spikes117" parent="SpikeTraps" unique_id=1447716380 instance=ExtResource("13_knpwr")]
+position = Vector2(9692, 1461)
+
+[node name="Spikes118" parent="SpikeTraps" unique_id=692540574 instance=ExtResource("13_knpwr")]
+position = Vector2(9708, 1461)
+
+[node name="Spikes119" parent="SpikeTraps" unique_id=2046772120 instance=ExtResource("13_knpwr")]
+position = Vector2(9724, 1461)
+
+[node name="Spikes120" parent="SpikeTraps" unique_id=1978291017 instance=ExtResource("13_knpwr")]
+position = Vector2(9740, 1461)
+
+[node name="Spikes121" parent="SpikeTraps" unique_id=703860227 instance=ExtResource("13_knpwr")]
+position = Vector2(9756, 1461)
+
+[node name="Spikes122" parent="SpikeTraps" unique_id=1015502458 instance=ExtResource("13_knpwr")]
+position = Vector2(9772, 1461)
+
+[node name="Spikes123" parent="SpikeTraps" unique_id=1164839377 instance=ExtResource("13_knpwr")]
+position = Vector2(9788, 1461)
+
+[node name="Spikes124" parent="SpikeTraps" unique_id=297024313 instance=ExtResource("13_knpwr")]
+position = Vector2(9804, 1461)
+
+[node name="Spikes125" parent="SpikeTraps" unique_id=1176535998 instance=ExtResource("13_knpwr")]
+position = Vector2(9820, 1461)
+
+[node name="Spikes126" parent="SpikeTraps" unique_id=990055145 instance=ExtResource("13_knpwr")]
+position = Vector2(9836, 1461)
+
+[node name="Spikes127" parent="SpikeTraps" unique_id=1801833152 instance=ExtResource("13_knpwr")]
+position = Vector2(9852, 1461)
+
+[node name="Spikes128" parent="SpikeTraps" unique_id=1225326975 instance=ExtResource("13_knpwr")]
+position = Vector2(9868, 1461)
+
+[node name="Spikes129" parent="SpikeTraps" unique_id=455474397 instance=ExtResource("13_knpwr")]
+position = Vector2(9884, 1461)
+
+[node name="Spikes130" parent="SpikeTraps" unique_id=1904021098 instance=ExtResource("13_knpwr")]
+position = Vector2(9900, 1461)
+
+[node name="Spikes131" parent="SpikeTraps" unique_id=1765761991 instance=ExtResource("13_knpwr")]
+position = Vector2(9916, 1461)
+
+[node name="Spikes132" parent="SpikeTraps" unique_id=505522175 instance=ExtResource("13_knpwr")]
+position = Vector2(9932, 1461)
+
+[node name="Spikes133" parent="SpikeTraps" unique_id=843341106 instance=ExtResource("13_knpwr")]
+position = Vector2(9948, 1461)
+
+[node name="Spikes134" parent="SpikeTraps" unique_id=1590547330 instance=ExtResource("13_knpwr")]
+position = Vector2(9964, 1461)
+
+[node name="Spikes135" parent="SpikeTraps" unique_id=126079915 instance=ExtResource("13_knpwr")]
+position = Vector2(9980, 1461)
+
+[node name="Spikes136" parent="SpikeTraps" unique_id=1957039505 instance=ExtResource("13_knpwr")]
+position = Vector2(9996, 1461)
+
+[node name="Spikes137" parent="SpikeTraps" unique_id=1461356503 instance=ExtResource("13_knpwr")]
+position = Vector2(10012, 1461)
+
+[node name="Spikes138" parent="SpikeTraps" unique_id=642641178 instance=ExtResource("13_knpwr")]
+position = Vector2(10028, 1461)
+
+[node name="Spikes139" parent="SpikeTraps" unique_id=529864429 instance=ExtResource("13_knpwr")]
+position = Vector2(10044, 1461)
+
+[node name="Spikes140" parent="SpikeTraps" unique_id=987757113 instance=ExtResource("13_knpwr")]
+position = Vector2(10060, 1461)
+
+[node name="Spikes141" parent="SpikeTraps" unique_id=1557846676 instance=ExtResource("13_knpwr")]
+position = Vector2(10076, 1461)
+
+[node name="Spikes142" parent="SpikeTraps" unique_id=1040502943 instance=ExtResource("13_knpwr")]
+position = Vector2(10092, 1461)
+
+[node name="Spikes143" parent="SpikeTraps" unique_id=575533507 instance=ExtResource("13_knpwr")]
+position = Vector2(10108, 1461)
+
+[node name="Spikes144" parent="SpikeTraps" unique_id=398085178 instance=ExtResource("13_knpwr")]
+position = Vector2(10124, 1461)
+
+[node name="Spikes145" parent="SpikeTraps" unique_id=1541753733 instance=ExtResource("13_knpwr")]
+position = Vector2(10140, 1461)
+
+[node name="Spikes146" parent="SpikeTraps" unique_id=2115964187 instance=ExtResource("13_knpwr")]
+position = Vector2(10156, 1461)
+
+[node name="Spikes147" parent="SpikeTraps" unique_id=569382398 instance=ExtResource("13_knpwr")]
+position = Vector2(10172, 1461)
+
+[node name="Spikes148" parent="SpikeTraps" unique_id=2052057266 instance=ExtResource("13_knpwr")]
+position = Vector2(10188, 1461)
+
+[node name="Spikes149" parent="SpikeTraps" unique_id=1042631081 instance=ExtResource("13_knpwr")]
+position = Vector2(10204, 1461)
+
+[node name="Spikes150" parent="SpikeTraps" unique_id=1643255150 instance=ExtResource("13_knpwr")]
+position = Vector2(10220, 1461)
+
+[node name="Spikes151" parent="SpikeTraps" unique_id=144508715 instance=ExtResource("13_knpwr")]
+position = Vector2(10236, 1461)
+
+[node name="Spikes152" parent="SpikeTraps" unique_id=660288769 instance=ExtResource("13_knpwr")]
+position = Vector2(10252, 1461)
+
+[node name="Spikes153" parent="SpikeTraps" unique_id=589985592 instance=ExtResource("13_knpwr")]
+position = Vector2(10268, 1461)
+
+[node name="Spikes154" parent="SpikeTraps" unique_id=541004360 instance=ExtResource("13_knpwr")]
+position = Vector2(10284, 1461)
+
+[node name="Spikes155" parent="SpikeTraps" unique_id=520826684 instance=ExtResource("13_knpwr")]
+position = Vector2(10300, 1461)
+
+[node name="Spikes156" parent="SpikeTraps" unique_id=784697515 instance=ExtResource("13_knpwr")]
+position = Vector2(10316, 1461)
+
+[node name="Spikes157" parent="SpikeTraps" unique_id=1705230286 instance=ExtResource("13_knpwr")]
+position = Vector2(10332, 1461)
+
+[node name="Spikes158" parent="SpikeTraps" unique_id=415139407 instance=ExtResource("13_knpwr")]
+position = Vector2(10348, 1461)
+
+[node name="Spikes159" parent="SpikeTraps" unique_id=226821415 instance=ExtResource("13_knpwr")]
+position = Vector2(10364, 1461)
+
+[node name="Spikes160" parent="SpikeTraps" unique_id=198531040 instance=ExtResource("13_knpwr")]
+position = Vector2(10380, 1461)
+
+[node name="Spikes161" parent="SpikeTraps" unique_id=808958449 instance=ExtResource("13_knpwr")]
+position = Vector2(10396, 1461)
+
+[node name="Spikes162" parent="SpikeTraps" unique_id=756973701 instance=ExtResource("13_knpwr")]
+position = Vector2(10412, 1461)
+
+[node name="Spikes163" parent="SpikeTraps" unique_id=2095636401 instance=ExtResource("13_knpwr")]
+position = Vector2(10428, 1461)
+
+[node name="Spikes164" parent="SpikeTraps" unique_id=568327004 instance=ExtResource("13_knpwr")]
+position = Vector2(10444, 1461)
+
+[node name="Spikes165" parent="SpikeTraps" unique_id=1833923594 instance=ExtResource("13_knpwr")]
+position = Vector2(10460, 1461)
+
+[node name="Spikes166" parent="SpikeTraps" unique_id=701300042 instance=ExtResource("13_knpwr")]
+position = Vector2(10476, 1461)
+
+[node name="Spikes167" parent="SpikeTraps" unique_id=805574521 instance=ExtResource("13_knpwr")]
+position = Vector2(10492, 1461)
+
+[node name="Spikes168" parent="SpikeTraps" unique_id=1744660704 instance=ExtResource("13_knpwr")]
+position = Vector2(10508, 1461)
+
+[node name="Spikes169" parent="SpikeTraps" unique_id=1707650654 instance=ExtResource("13_knpwr")]
+position = Vector2(10524, 1461)
+
+[node name="Spikes170" parent="SpikeTraps" unique_id=932877613 instance=ExtResource("13_knpwr")]
+position = Vector2(10540, 1461)
+
+[node name="Spikes171" parent="SpikeTraps" unique_id=628812146 instance=ExtResource("13_knpwr")]
+position = Vector2(10556, 1461)
+
+[node name="Spikes172" parent="SpikeTraps" unique_id=385019240 instance=ExtResource("13_knpwr")]
+position = Vector2(10572, 1461)
+
+[node name="Spikes173" parent="SpikeTraps" unique_id=1744905583 instance=ExtResource("13_knpwr")]
+position = Vector2(10588, 1461)
+
+[node name="Spikes174" parent="SpikeTraps" unique_id=326359842 instance=ExtResource("13_knpwr")]
+position = Vector2(10604, 1461)
+
+[node name="Spikes175" parent="SpikeTraps" unique_id=933776670 instance=ExtResource("13_knpwr")]
+position = Vector2(10620, 1461)
+
+[node name="Spikes176" parent="SpikeTraps" unique_id=1411896960 instance=ExtResource("13_knpwr")]
+position = Vector2(10636, 1461)
+
+[node name="Spikes177" parent="SpikeTraps" unique_id=470732275 instance=ExtResource("13_knpwr")]
+position = Vector2(10652, 1461)
+
+[node name="Spikes178" parent="SpikeTraps" unique_id=1703491915 instance=ExtResource("13_knpwr")]
+position = Vector2(10668, 1461)
+
+[node name="Spikes179" parent="SpikeTraps" unique_id=850151783 instance=ExtResource("13_knpwr")]
+position = Vector2(10684, 1461)
+
+[node name="Spikes180" parent="SpikeTraps" unique_id=1808746559 instance=ExtResource("13_knpwr")]
+position = Vector2(10700, 1461)
+
+[node name="Spikes181" parent="SpikeTraps" unique_id=112165865 instance=ExtResource("13_knpwr")]
+position = Vector2(10716, 1461)
+
+[node name="Spikes182" parent="SpikeTraps" unique_id=1557944904 instance=ExtResource("13_knpwr")]
+position = Vector2(10732, 1461)
+
+[node name="Spikes183" parent="SpikeTraps" unique_id=1353195841 instance=ExtResource("13_knpwr")]
+position = Vector2(10748, 1461)
+
+[node name="Spikes184" parent="SpikeTraps" unique_id=1580227991 instance=ExtResource("13_knpwr")]
+position = Vector2(10764, 1461)
+
+[node name="Spikes185" parent="SpikeTraps" unique_id=1521919840 instance=ExtResource("13_knpwr")]
+position = Vector2(10780, 1461)
+
+[node name="Spikes186" parent="SpikeTraps" unique_id=571138656 instance=ExtResource("13_knpwr")]
+position = Vector2(10796, 1461)
+
+[node name="Spikes187" parent="SpikeTraps" unique_id=1569257482 instance=ExtResource("13_knpwr")]
+position = Vector2(10812, 1461)
+
+[node name="Spikes188" parent="SpikeTraps" unique_id=1377727407 instance=ExtResource("13_knpwr")]
+position = Vector2(10828, 1461)
+
+[node name="Spikes189" parent="SpikeTraps" unique_id=1390901931 instance=ExtResource("13_knpwr")]
+position = Vector2(10844, 1461)
+
+[node name="Spikes190" parent="SpikeTraps" unique_id=1567720122 instance=ExtResource("13_knpwr")]
+position = Vector2(10860, 1461)
+
+[node name="Spikes191" parent="SpikeTraps" unique_id=2073609378 instance=ExtResource("13_knpwr")]
+position = Vector2(10876, 1461)
+
+[node name="Spikes192" parent="SpikeTraps" unique_id=761919230 instance=ExtResource("13_knpwr")]
+position = Vector2(10892, 1461)
+
+[node name="Spikes57" parent="SpikeTraps" unique_id=1257590993 instance=ExtResource("13_knpwr")]
+position = Vector2(2684, 421)
+
+[node name="Spikes58" parent="SpikeTraps" unique_id=638700673 instance=ExtResource("13_knpwr")]
+position = Vector2(2700, 421)
+
+[node name="Spikes59" parent="SpikeTraps" unique_id=1573464873 instance=ExtResource("13_knpwr")]
+position = Vector2(2716, 421)
+
+[node name="Spikes60" parent="SpikeTraps" unique_id=1344812504 instance=ExtResource("13_knpwr")]
+position = Vector2(2732, 421)
+
+[node name="Spikes61" parent="SpikeTraps" unique_id=677652424 instance=ExtResource("13_knpwr")]
+position = Vector2(2748, 421)
+
+[node name="Spikes62" parent="SpikeTraps" unique_id=2139803916 instance=ExtResource("13_knpwr")]
+position = Vector2(2764, 421)
+
+[node name="Spikes63" parent="SpikeTraps" unique_id=1384919791 instance=ExtResource("13_knpwr")]
+position = Vector2(2780, 421)
+
+[node name="Spikes64" parent="SpikeTraps" unique_id=686324118 instance=ExtResource("13_knpwr")]
+position = Vector2(2796, 421)
+
+[node name="Spikes65" parent="SpikeTraps" unique_id=997695581 instance=ExtResource("13_knpwr")]
+position = Vector2(2812, 421)
+
+[node name="Spikes66" parent="SpikeTraps" unique_id=1270364274 instance=ExtResource("13_knpwr")]
+position = Vector2(2828, 421)
+
+[node name="Spikes67" parent="SpikeTraps" unique_id=1228748428 instance=ExtResource("13_knpwr")]
+position = Vector2(2844, 421)
+
+[node name="Spikes68" parent="SpikeTraps" unique_id=907634723 instance=ExtResource("13_knpwr")]
+position = Vector2(2860, 421)
+
+[node name="Spikes69" parent="SpikeTraps" unique_id=1014919747 instance=ExtResource("13_knpwr")]
+position = Vector2(2876, 421)
+
+[node name="Spikes70" parent="SpikeTraps" unique_id=294990335 instance=ExtResource("13_knpwr")]
+position = Vector2(2892, 421)
+
+[node name="Spikes71" parent="SpikeTraps" unique_id=1045210467 instance=ExtResource("13_knpwr")]
+position = Vector2(2908, 421)
+
+[node name="Spikes72" parent="SpikeTraps" unique_id=1469128076 instance=ExtResource("13_knpwr")]
+position = Vector2(2924, 421)
+
+[node name="Spikes73" parent="SpikeTraps" unique_id=877970190 instance=ExtResource("13_knpwr")]
+position = Vector2(2940, 421)
+
+[node name="Spikes74" parent="SpikeTraps" unique_id=1244293316 instance=ExtResource("13_knpwr")]
+position = Vector2(2956, 421)
+
+[node name="Spikes75" parent="SpikeTraps" unique_id=674507474 instance=ExtResource("13_knpwr")]
+position = Vector2(2972, 421)
+
+[node name="Spikes76" parent="SpikeTraps" unique_id=1068371453 instance=ExtResource("13_knpwr")]
+position = Vector2(2988, 421)
+
+[node name="Spikes77" parent="SpikeTraps" unique_id=655969760 instance=ExtResource("13_knpwr")]
+position = Vector2(3004, 421)
+
+[node name="Spikes78" parent="SpikeTraps" unique_id=47049767 instance=ExtResource("13_knpwr")]
+position = Vector2(3020, 421)
+
+[node name="Spikes79" parent="SpikeTraps" unique_id=1977429611 instance=ExtResource("13_knpwr")]
+position = Vector2(3036, 421)
+
+[node name="Spikes80" parent="SpikeTraps" unique_id=1142217144 instance=ExtResource("13_knpwr")]
+position = Vector2(3052, 421)
+
+[node name="Spikes81" parent="SpikeTraps" unique_id=1955724071 instance=ExtResource("13_knpwr")]
+position = Vector2(3068, 421)
+
+[node name="Spikes82" parent="SpikeTraps" unique_id=223174651 instance=ExtResource("13_knpwr")]
+position = Vector2(3084, 421)
+
+[node name="Spikes83" parent="SpikeTraps" unique_id=1437540649 instance=ExtResource("13_knpwr")]
+position = Vector2(3100, 421)
+
+[node name="Spikes84" parent="SpikeTraps" unique_id=2077064156 instance=ExtResource("13_knpwr")]
+position = Vector2(3116, 421)
+
+[node name="Spikes90" parent="SpikeTraps" unique_id=1964928989 instance=ExtResource("13_knpwr")]
+position = Vector2(3132, 421)
+
+[node name="Spikes91" parent="SpikeTraps" unique_id=1912548683 instance=ExtResource("13_knpwr")]
+position = Vector2(3148, 421)
+
+[node name="Spikes92" parent="SpikeTraps" unique_id=1046658709 instance=ExtResource("13_knpwr")]
+position = Vector2(3164, 421)
+
+[node name="Spikes93" parent="SpikeTraps" unique_id=165169535 instance=ExtResource("13_knpwr")]
+position = Vector2(8876, 629)
+
+[node name="Spikes94" parent="SpikeTraps" unique_id=1796806648 instance=ExtResource("13_knpwr")]
+position = Vector2(8892, 629)
+
+[node name="Spikes95" parent="SpikeTraps" unique_id=1478582373 instance=ExtResource("13_knpwr")]
+position = Vector2(8908, 629)
+
+[node name="Spikes96" parent="SpikeTraps" unique_id=690902002 instance=ExtResource("13_knpwr")]
+position = Vector2(8924, 629)
+
+[node name="Spikes97" parent="SpikeTraps" unique_id=340225073 instance=ExtResource("13_knpwr")]
+position = Vector2(8940, 629)
+
+[node name="Spikes98" parent="SpikeTraps" unique_id=855864684 instance=ExtResource("13_knpwr")]
+position = Vector2(8956, 629)
+
+[node name="Spikes99" parent="SpikeTraps" unique_id=66797373 instance=ExtResource("13_knpwr")]
+position = Vector2(8972, 629)
+
+[node name="Spikes100" parent="SpikeTraps" unique_id=260135611 instance=ExtResource("13_knpwr")]
+position = Vector2(8988, 629)
+
+[node name="Spikes101" parent="SpikeTraps" unique_id=396744753 instance=ExtResource("13_knpwr")]
+position = Vector2(9004, 629)
+
+[node name="RotatingPlatforms" type="Node" parent="." unique_id=814590768]
+
+[node name="RotatingPlatform" parent="RotatingPlatforms" unique_id=1695628550 instance=ExtResource("14_rjeum")]
+position = Vector2(9604, 1317)
+
+[node name="RotatingPlatform2" parent="RotatingPlatforms" unique_id=1293981130 instance=ExtResource("14_rjeum")]
+position = Vector2(9716, 1349)
+
+[node name="RotatingPlatform3" parent="RotatingPlatforms" unique_id=1115556466 instance=ExtResource("14_rjeum")]
+position = Vector2(9828, 1317)
+
+[node name="RotatingPlatform4" parent="RotatingPlatforms" unique_id=1486582390 instance=ExtResource("14_rjeum")]
+position = Vector2(9924, 1253)
+
+[node name="RotatingPlatform5" parent="RotatingPlatforms" unique_id=294019197 instance=ExtResource("14_rjeum")]
+position = Vector2(9908, 1349)
+
+[node name="RotatingPlatform6" parent="RotatingPlatforms" unique_id=787779005 instance=ExtResource("14_rjeum")]
+position = Vector2(10052, 1333)
+
+[node name="RotatingPlatform7" parent="RotatingPlatforms" unique_id=1611803630 instance=ExtResource("14_rjeum")]
+position = Vector2(10012, 1237)
+
+[node name="RotatingPlatform8" parent="RotatingPlatforms" unique_id=1716244328 instance=ExtResource("14_rjeum")]
+position = Vector2(10116, 1221)
+
+[node name="RotatingPlatform9" parent="RotatingPlatforms" unique_id=1067795296 instance=ExtResource("14_rjeum")]
+position = Vector2(10172, 1350)
+
+[node name="RotatingPlatform10" parent="RotatingPlatforms" unique_id=878664852 instance=ExtResource("14_rjeum")]
+position = Vector2(10228, 1237)
+
+[node name="RotatingPlatform11" parent="RotatingPlatforms" unique_id=1587852166 instance=ExtResource("14_rjeum")]
+position = Vector2(10284, 1333)
+
+[node name="RotatingPlatform12" parent="RotatingPlatforms" unique_id=213674700 instance=ExtResource("14_rjeum")]
+position = Vector2(10436, 1301)
+
+[node name="RotatingPlatform13" parent="RotatingPlatforms" unique_id=1210793956 instance=ExtResource("14_rjeum")]
+position = Vector2(10564, 1269)
+
+[node name="RotatingPlatform14" parent="RotatingPlatforms" unique_id=1089866024 instance=ExtResource("14_rjeum")]
+position = Vector2(10708, 1285)
+
+[node name="RotatingPlatform15" parent="RotatingPlatforms" unique_id=1833087763 instance=ExtResource("14_rjeum")]
+position = Vector2(10812, 1318)
+
+[node name="RotatingPlatform16" parent="RotatingPlatforms" unique_id=145919699 instance=ExtResource("14_rjeum")]
+position = Vector2(10340, 1270)
+
+[node name="CameraBounds" type="Node" parent="." unique_id=188246983]
+
+[node name="CameraBound" type="Area2D" parent="CameraBounds" unique_id=1065543007]
+position = Vector2(-191, 468)
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("15_5w8o0")
+metadata/_custom_type_script = "uid://17so0q8s74kk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds/CameraBound" unique_id=1037471351]
+position = Vector2(-16, -67)
+shape = SubResource("RectangleShape2D_v1wpk")
+
+[node name="CameraBound2" type="Area2D" parent="CameraBounds" unique_id=891267441]
+position = Vector2(4323, 367)
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("15_5w8o0")
+metadata/_custom_type_script = "uid://17so0q8s74kk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds/CameraBound2" unique_id=1377934630]
+position = Vector2(93, -51)
+shape = SubResource("RectangleShape2D_ghn5e")
+
+[node name="CameraBound3" type="Area2D" parent="CameraBounds" unique_id=1680988558]
+position = Vector2(7368, 558)
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("15_5w8o0")
+metadata/_custom_type_script = "uid://17so0q8s74kk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds/CameraBound3" unique_id=2039727098]
+position = Vector2(279.5, -103)
+shape = SubResource("RectangleShape2D_tkcff")
+
+[node name="Enemies" type="Node" parent="." unique_id=329802506]
+
+[node name="Walker" parent="Enemies" unique_id=2141208260 instance=ExtResource("15_37gc6")]
+position = Vector2(-1118, 5)
+
+[node name="Walker2" parent="Enemies" unique_id=782696455 instance=ExtResource("15_37gc6")]
+position = Vector2(-794, -60)
+
+[node name="Surveyer" parent="Enemies" unique_id=2029247517 instance=ExtResource("16_o04gq")]
+position = Vector2(-306, -111)
+
+[node name="Surveyer2" parent="Enemies" unique_id=1023041461 instance=ExtResource("16_o04gq")]
+position = Vector2(75, -115)
+
+[node name="Surveyer3" parent="Enemies" unique_id=234406391 instance=ExtResource("16_o04gq")]
+position = Vector2(485, 117)
+
+[node name="Surveyer4" parent="Enemies" unique_id=78229572 instance=ExtResource("16_o04gq")]
+position = Vector2(628, 119)
+
+[node name="chopper" parent="Enemies" unique_id=1949505990 instance=ExtResource("17_ydlij")]
+position = Vector2(497, 228)
+
+[node name="chopper2" parent="Enemies" unique_id=1938453572 instance=ExtResource("17_ydlij")]
+position = Vector2(641, 228)
+
+[node name="Walker5" parent="Enemies" unique_id=360587839 instance=ExtResource("15_37gc6")]
+position = Vector2(554, -28)
+
+[node name="Walker6" parent="Enemies" unique_id=1479505723 instance=ExtResource("15_37gc6")]
+position = Vector2(675, -27)
+
+[node name="Surveyer5" parent="Enemies" unique_id=1069068500 instance=ExtResource("16_o04gq")]
+position = Vector2(638, -187)
+
+[node name="Surveyer6" parent="Enemies" unique_id=2102541848 instance=ExtResource("16_o04gq")]
+position = Vector2(991, -93)
+
+[node name="Walker7" parent="Enemies" unique_id=1633425645 instance=ExtResource("15_37gc6")]
+position = Vector2(872, -29)
+
+[node name="chopper3" parent="Enemies" unique_id=877923035 instance=ExtResource("17_ydlij")]
+position = Vector2(1008, -27)
+
+[node name="chopper4" parent="Enemies" unique_id=802215560 instance=ExtResource("17_ydlij")]
+position = Vector2(1113, 227)
+
+[node name="chopper5" parent="Enemies" unique_id=1382153537 instance=ExtResource("17_ydlij")]
+position = Vector2(1216, 228)
+
+[node name="chopper6" parent="Enemies" unique_id=1441505882 instance=ExtResource("17_ydlij")]
+position = Vector2(1309, 227)
+
+[node name="Surveyer7" parent="Enemies" unique_id=1748481443 instance=ExtResource("16_o04gq")]
+position = Vector2(1224, 125)
+
+[node name="Surveyer9" parent="Enemies" unique_id=1915931671 instance=ExtResource("16_o04gq")]
+position = Vector2(1709, 13)
+
+[node name="Surveyer10" parent="Enemies" unique_id=1565964982 instance=ExtResource("16_o04gq")]
+position = Vector2(1984, 6)
+
+[node name="Surveyer11" parent="Enemies" unique_id=682374094 instance=ExtResource("16_o04gq")]
+position = Vector2(1894, 270)
+
+[node name="Surveyer14" parent="Enemies" unique_id=1093264814 instance=ExtResource("16_o04gq")]
+position = Vector2(3393, 137)
+
+[node name="Surveyer15" parent="Enemies" unique_id=1221253838 instance=ExtResource("16_o04gq")]
+position = Vector2(3576, -17)
+
+[node name="Surveyer16" parent="Enemies" unique_id=196240751 instance=ExtResource("16_o04gq")]
+position = Vector2(4249, -349)
+
+[node name="Surveyer17" parent="Enemies" unique_id=955955445 instance=ExtResource("16_o04gq")]
+position = Vector2(4666, -269)
+
+[node name="Walker9" parent="Enemies" unique_id=940115335 instance=ExtResource("15_37gc6")]
+position = Vector2(5081, 35)
+
+[node name="Walker10" parent="Enemies" unique_id=810028922 instance=ExtResource("15_37gc6")]
+position = Vector2(5270, 37)
+
+[node name="Surveyer18" parent="Enemies" unique_id=39540299 instance=ExtResource("16_o04gq")]
+position = Vector2(5273, -107)
+
+[node name="Surveyer19" parent="Enemies" unique_id=274765470 instance=ExtResource("16_o04gq")]
+position = Vector2(5611, -199)
+
+[node name="Walker11" parent="Enemies" unique_id=1835530060 instance=ExtResource("15_37gc6")]
+position = Vector2(5670, 36)
+
+[node name="chopper7" parent="Enemies" unique_id=734693741 instance=ExtResource("17_ydlij")]
+position = Vector2(5537, 36)
+
+[node name="chopper8" parent="Enemies" unique_id=1374354137 instance=ExtResource("17_ydlij")]
+position = Vector2(5899, -12)
+
+[node name="chopper9" parent="Enemies" unique_id=1558126991 instance=ExtResource("17_ydlij")]
+position = Vector2(6083, -12)
+
+[node name="chopper10" parent="Enemies" unique_id=791103798 instance=ExtResource("17_ydlij")]
+position = Vector2(6307, -13)
+
+[node name="chopper11" parent="Enemies" unique_id=217475257 instance=ExtResource("17_ydlij")]
+position = Vector2(6458, -13)
+
+[node name="chopper12" parent="Enemies" unique_id=781530304 instance=ExtResource("17_ydlij")]
+position = Vector2(6909, 31)
+
+[node name="chopper13" parent="Enemies" unique_id=1674883963 instance=ExtResource("17_ydlij")]
+position = Vector2(7386, 113)
+
+[node name="chopper14" parent="Enemies" unique_id=616403438 instance=ExtResource("17_ydlij")]
+position = Vector2(7715, 144)
+
+[node name="chopper15" parent="Enemies" unique_id=596896501 instance=ExtResource("17_ydlij")]
+position = Vector2(7858, 142)
+
+[node name="Walker12" parent="Enemies" unique_id=198390571 instance=ExtResource("15_37gc6")]
+position = Vector2(6657, 34)
+
+[node name="Walker13" parent="Enemies" unique_id=638670612 instance=ExtResource("15_37gc6")]
+position = Vector2(7119, 113)
+
+[node name="Surveyer20" parent="Enemies" unique_id=1433317928 instance=ExtResource("16_o04gq")]
+position = Vector2(8219, 29)
+
+[node name="Surveyer21" parent="Enemies" unique_id=1990041776 instance=ExtResource("16_o04gq")]
+position = Vector2(8583, 27)
+
+[node name="Surveyer22" parent="Enemies" unique_id=1007562921 instance=ExtResource("16_o04gq")]
+position = Vector2(8943, 30)
+
+[node name="charger" parent="Enemies" unique_id=302259012 instance=ExtResource("18_v1wpk")]
+position = Vector2(8324, 146)
+
+[node name="charger2" parent="Enemies" unique_id=408292741 instance=ExtResource("18_v1wpk")]
+position = Vector2(8829, 144)
+
+[node name="charger3" parent="Enemies" unique_id=1875798467 instance=ExtResource("18_v1wpk")]
+position = Vector2(8719, 354)
+
+[node name="charger4" parent="Enemies" unique_id=900078624 instance=ExtResource("18_v1wpk")]
+position = Vector2(8475, 353)
+
+[node name="charger5" parent="Enemies" unique_id=900556371 instance=ExtResource("18_v1wpk")]
+position = Vector2(8485, 673)
+
+[node name="Walker14" parent="Enemies" unique_id=1030985899 instance=ExtResource("15_37gc6")]
+position = Vector2(8650, 145)
+
+[node name="chopper16" parent="Enemies" unique_id=228679036 instance=ExtResource("17_ydlij")]
+position = Vector2(8624, 672)
+
+[node name="chopper17" parent="Enemies" unique_id=1967097648 instance=ExtResource("17_ydlij")]
+position = Vector2(8773, 674)
+
+[node name="Surveyer23" parent="Enemies" unique_id=561782036 instance=ExtResource("16_o04gq")]
+position = Vector2(8516, 529)
+
+[node name="Surveyer24" parent="Enemies" unique_id=951292265 instance=ExtResource("16_o04gq")]
+position = Vector2(8666, 533)
+
+[node name="charger6" parent="Enemies" unique_id=136123900 instance=ExtResource("18_v1wpk")]
+position = Vector2(8814, 935)
+
+[node name="charger7" parent="Enemies" unique_id=1387947094 instance=ExtResource("18_v1wpk")]
+position = Vector2(8710, 1251)
+
+[node name="charger8" parent="Enemies" unique_id=1269402059 instance=ExtResource("18_v1wpk")]
+position = Vector2(8957, 1250)
+
+[node name="chopper18" parent="Enemies" unique_id=246775888 instance=ExtResource("17_ydlij")]
+position = Vector2(8806, 1252)
+
+[node name="chopper19" parent="Enemies" unique_id=1432811511 instance=ExtResource("17_ydlij")]
+position = Vector2(8889, 1251)
+
+[node name="Surveyer25" parent="Enemies" unique_id=1784911797 instance=ExtResource("16_o04gq")]
+position = Vector2(8678, 1103)
+
+[node name="Surveyer26" parent="Enemies" unique_id=1993556169 instance=ExtResource("16_o04gq")]
+position = Vector2(9008, 1099)
+
+[node name="Surveyer27" parent="Enemies" unique_id=1055401789 instance=ExtResource("16_o04gq")]
+position = Vector2(8856, 1100)
+
+[node name="Surveyer30" parent="Enemies" unique_id=1170895510 instance=ExtResource("16_o04gq")]
+position = Vector2(10719, 1220)
+
+[node name="turret" parent="Enemies" unique_id=943934492 instance=ExtResource("19_ydlij")]
+position = Vector2(4145, -218)
+
+[node name="charger9" parent="Enemies" unique_id=119121357 instance=ExtResource("18_v1wpk")]
+position = Vector2(11133, 2515)
+
+[node name="charger10" parent="Enemies" unique_id=2071860583 instance=ExtResource("18_v1wpk")]
+position = Vector2(11240, 2516)
+
+[node name="charger11" parent="Enemies" unique_id=1575836656 instance=ExtResource("18_v1wpk")]
+position = Vector2(11382, 2515)
+
+[node name="charger12" parent="Enemies" unique_id=1572023917 instance=ExtResource("18_v1wpk")]
+position = Vector2(11557, 2514)
+
+[node name="chopper20" parent="Enemies" unique_id=504952180 instance=ExtResource("17_ydlij")]
+position = Vector2(11198, 2514)
+
+[node name="chopper21" parent="Enemies" unique_id=998397477 instance=ExtResource("17_ydlij")]
+position = Vector2(11311, 2512)
+
+[node name="chopper22" parent="Enemies" unique_id=1551878236 instance=ExtResource("17_ydlij")]
+position = Vector2(11474, 2512)
+
+[node name="Surveyer8" parent="Enemies" unique_id=691122580 instance=ExtResource("16_o04gq")]
+position = Vector2(11218, 2397)
+
+[node name="Surveyer12" parent="Enemies" unique_id=2040461366 instance=ExtResource("16_o04gq")]
+position = Vector2(11324, 2385)
+
+[node name="Surveyer13" parent="Enemies" unique_id=1578501333 instance=ExtResource("16_o04gq")]
+position = Vector2(11427, 2384)
+
+[node name="Surveyer28" parent="Enemies" unique_id=380387088 instance=ExtResource("16_o04gq")]
+position = Vector2(11541, 2397)

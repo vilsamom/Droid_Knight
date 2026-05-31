@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://b3s5i87613sqm"]
+
+[ext_resource type="Texture2D" uid="uid://d3m761br2klym" path="res://droid knight/sprites/arrow.png" id="1_2u0bd"]
+[ext_resource type="Script" uid="uid://da212p12w52g3" path="res://Scripts/arrow.gd" id="1_40cdi"]
+[ext_resource type="PackedScene" uid="uid://cjirtotgw7k5r" path="res://Scenes/hitbox.tscn" id="3_xxsqv"]
+[ext_resource type="PackedScene" uid="uid://dmty8mcwiu8uo" path="res://Scenes/explosion.tscn" id="4_xxsqv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yjaco"]
+radius = 3.9999826
+height = 8.011709
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5x2m"]
+atlas = ExtResource("1_2u0bd")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40cdi"]
+atlas = ExtResource("1_2u0bd")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxsqv"]
+atlas = ExtResource("1_2u0bd")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjaco"]
+atlas = ExtResource("1_2u0bd")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c32fr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5x2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40cdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxsqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjaco")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Curve" id="Curve_40cdi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="arrow" type="Area2D" unique_id=1858471120 node_paths=PackedStringArray("explosion")]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_40cdi")
+explosion = NodePath("explosion")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1922317690]
+position = Vector2(3.0000002, -1)
+rotation = 1.5678607
+shape = SubResource("CapsuleShape2D_yjaco")
+debug_color = Color(0, 0.6047973, 0.6735358, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1150428905]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+sprite_frames = SubResource("SpriteFrames_c32fr")
+autoplay = "default"
+frame_progress = 0.62014115
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=904297959]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+position = Vector2(5, -1)
+amount = 96
+lifetime = 0.5
+emission_shape = 6
+emission_ring_inner_radius = 0.8
+emission_ring_radius = 8.0
+particle_flag_align_y = true
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+linear_accel_min = 200.0
+linear_accel_max = 400.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_40cdi")
+color = Color(0.4509804, 0.9372549, 0.9098039, 1)
+
+[node name="Hitbox" parent="." unique_id=928187453 instance=ExtResource("3_xxsqv")]
+collision_layer = 8
+collision_mask = 4
+damage = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=370813708]
+position = Vector2(3.0000002, -1)
+rotation = 1.5678607
+shape = SubResource("CapsuleShape2D_yjaco")
+debug_color = Color(1, 0.0067823445, 0.0772912, 0.41960785)
+
+[node name="explosion" parent="." unique_id=1989496051 instance=ExtResource("4_xxsqv")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1066038637]
+position = Vector2(0, -1)
+rect = Rect2(-10, -8, 25, 17)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

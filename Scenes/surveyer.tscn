@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://d3nbenqibx5qe"]
+
+[ext_resource type="Script" uid="uid://d0pbrs0lg78pt" path="res://Scripts/surveyer.gd" id="1_q8sd7"]
+[ext_resource type="Texture2D" uid="uid://dbitgdo3o2odk" path="res://droid knight/sprites/surveyer.png" id="1_weo21"]
+[ext_resource type="PackedScene" uid="uid://c62vjcpp6ca5o" path="res://Scenes/hurtbox.tscn" id="2_8duad"]
+[ext_resource type="PackedScene" uid="uid://2j1dw80i6afd" path="res://Scenes/bullet.tscn" id="2_fpkv8"]
+[ext_resource type="PackedScene" uid="uid://cjirtotgw7k5r" path="res://Scenes/hitbox.tscn" id="3_07b0o"]
+[ext_resource type="Script" uid="uid://c25h8kc34r6l1" path="res://Scripts/health_component.gd" id="4_si2ou"]
+[ext_resource type="Script" uid="uid://dg18v6qoi5upl" path="res://Scripts/death_component.gd" id="5_tvqhp"]
+[ext_resource type="PackedScene" uid="uid://dmty8mcwiu8uo" path="res://Scenes/explosion.tscn" id="7_c2rn4"]
+[ext_resource type="Script" uid="uid://t6vwqojg006i" path="res://Scripts/enemy_flying_component.gd" id="7_cq40h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6juu"]
+atlas = ExtResource("1_weo21")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8duad"]
+atlas = ExtResource("1_weo21")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07b0o"]
+atlas = ExtResource("1_weo21")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_si2ou"]
+atlas = ExtResource("1_weo21")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tvqhp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6juu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8duad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07b0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_si2ou")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_si2ou"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tvqhp"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpkv8"]
+size = Vector2(250, 184)
+
+[node name="Surveyer" type="CharacterBody2D" unique_id=2029247517 groups=["enemy"]]
+z_index = 3
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_q8sd7")
+bullet_scene = ExtResource("2_fpkv8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=871261736]
+sprite_frames = SubResource("SpriteFrames_tvqhp")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.45563278
+
+[node name="Hurtbox" parent="." unique_id=950616467 node_paths=PackedStringArray("health") instance=ExtResource("2_8duad")]
+position = Vector2(0, -1)
+collision_layer = 8
+collision_mask = 7
+health = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=113547591]
+shape = SubResource("CircleShape2D_si2ou")
+debug_color = Color(0, 0.70196074, 0.13239586, 0.41960785)
+
+[node name="Hitbox" parent="." unique_id=928187453 instance=ExtResource("3_07b0o")]
+position = Vector2(0, -1)
+collision_layer = 8
+collision_mask = 7
+damage = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=599406909]
+shape = SubResource("CircleShape2D_tvqhp")
+debug_color = Color(0.70196074, 0.052672695, 0, 0.41960785)
+
+[node name="HealthComponent" type="Node" parent="." unique_id=2029229978 node_paths=PackedStringArray("character_body")]
+script = ExtResource("4_si2ou")
+character_body = NodePath("..")
+max_health = 30.0
+metadata/_custom_type_script = "uid://c25h8kc34r6l1"
+
+[node name="DeathComponent" type="Node" parent="." unique_id=1725969543 node_paths=PackedStringArray("health_component", "character_body")]
+script = ExtResource("5_tvqhp")
+health_component = NodePath("../HealthComponent")
+character_body = NodePath("..")
+explosion_scene = ExtResource("7_c2rn4")
+metadata/_custom_type_script = "uid://dg18v6qoi5upl"
+
+[node name="EnemyFlyingComponent" type="Node" parent="." unique_id=1936417860 node_paths=PackedStringArray("ray_left", "ray_right", "ray_up", "ray_down", "parent_body", "sprite")]
+script = ExtResource("7_cq40h")
+ray_left = NodePath("../RayCastLeft")
+ray_right = NodePath("../RayCastRight")
+ray_up = NodePath("../RayCastUp")
+ray_down = NodePath("../RayCastDown")
+parent_body = NodePath("..")
+sprite = NodePath("../AnimatedSprite2D")
+metadata/_custom_type_script = "uid://t6vwqojg006i"
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=129911331]
+target_position = Vector2(7, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=5479045]
+target_position = Vector2(-7, 0)
+
+[node name="RayCastUp" type="RayCast2D" parent="." unique_id=871036967]
+target_position = Vector2(0, -7)
+
+[node name="RayCastDown" type="RayCast2D" parent="." unique_id=1752696054]
+target_position = Vector2(0, 7)
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=1601117262]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone" unique_id=1101484512]
+position = Vector2(0, 27)
+shape = SubResource("RectangleShape2D_fpkv8")
+
+[node name="gun" type="Sprite2D" parent="." unique_id=797550030]
+z_index = -1
+position = Vector2(0, 5)
+texture = ExtResource("1_weo21")
+offset = Vector2(2.5, -0.5)
+region_enabled = true
+region_rect = Rect2(0, 32, 32, 32)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1645929486]
+
+[connection signal="received_damage" from="Hurtbox" to="." method="_on_hurtbox_received_damage"]
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
+[connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]

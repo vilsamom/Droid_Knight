@@ -1,0 +1,301 @@
+[gd_scene format=3 uid="uid://b5osaipj28uxd"]
+
+[ext_resource type="Script" uid="uid://2j2xaidi2g0y" path="res://Scripts/turret.gd" id="1_6spbj"]
+[ext_resource type="Texture2D" uid="uid://p4slxnq034aq" path="res://droid knight/sprites/turret.png" id="1_hskch"]
+[ext_resource type="Texture2D" uid="uid://d3m761br2klym" path="res://droid knight/sprites/arrow.png" id="2_6spbj"]
+[ext_resource type="PackedScene" uid="uid://b3s5i87613sqm" path="res://Scenes/arrow.tscn" id="2_ahfaj"]
+[ext_resource type="PackedScene" uid="uid://dmty8mcwiu8uo" path="res://Scenes/explosion.tscn" id="4_pulj5"]
+[ext_resource type="PackedScene" uid="uid://c62vjcpp6ca5o" path="res://Scenes/hurtbox.tscn" id="6_628tr"]
+[ext_resource type="PackedScene" uid="uid://cjirtotgw7k5r" path="res://Scenes/hitbox.tscn" id="7_74mb1"]
+[ext_resource type="Script" uid="uid://c25h8kc34r6l1" path="res://Scripts/health_component.gd" id="8_74mb1"]
+[ext_resource type="Script" uid="uid://dg18v6qoi5upl" path="res://Scripts/death_component.gd" id="9_hxjjt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hxjjt"]
+blend_mode = 4
+light_mode = 1
+
+[sub_resource type="Animation" id="Animation_pulj5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blast:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 32, 32)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("blast:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath(".:charging")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath(".:recoil")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath(".:fire")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("blast:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1.8247963, 1.8247963, 1.8247963, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ahfaj"]
+resource_name = "fire"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1.1, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 32), Rect2(32, 0, 32, 32), Rect2(64, 0, 32, 32), Rect2(96, 0, 32, 32), Rect2(96, 0, 32, 32), Rect2(0, 32, 32, 32), Rect2(32, 32, 32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blast:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.9, 1.2, 1.5, 1.85, 1.9, 1.95, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 32), Rect2(0, 0, 32, 32), Rect2(32, 0, 32, 32), Rect2(64, 0, 32, 32), Rect2(96, 0, 32, 32), Rect2(32, 32, 32, 32), Rect2(64, 32, 32, 32), Rect2(96, 32, 32, 32), Rect2(0, 0, 32, 32)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("blast:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:charging")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:recoil")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.9, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:fire")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.95, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("blast:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1.8247963, 1.8247963, 1.8247963, 1), Color(1.8247963, 1.8247963, 1.8247963, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ku01o"]
+_data = {
+&"RESET": SubResource("Animation_pulj5"),
+&"fire": SubResource("Animation_ahfaj")
+}
+
+[sub_resource type="Curve" id="Curve_6spbj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxjjt"]
+size = Vector2(18, 13)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hpwha"]
+radius = 4.999988
+height = 15.99996
+
+[node name="turret" type="CharacterBody2D" unique_id=943934492 node_paths=PackedStringArray("animation_player", "visible_enabler", "turret_sprite", "blast_sprite", "fire_point", "charge_particles", "explosion") groups=["enemy"]]
+material = SubResource("CanvasItemMaterial_hxjjt")
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_6spbj")
+animation_player = NodePath("AnimationPlayer")
+visible_enabler = NodePath("VisibleOnScreenEnabler2D")
+arrow_scene = ExtResource("2_ahfaj")
+turret_sprite = NodePath("Sprite2D")
+blast_sprite = NodePath("blast")
+fire_point = NodePath("AttackOrigin")
+charge_particles = NodePath("ChargeParticle")
+explosion = NodePath("explosion")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=653892076]
+position = Vector2(0, -7)
+texture = ExtResource("1_hskch")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1143157252]
+libraries/ = SubResource("AnimationLibrary_ku01o")
+autoplay = &"fire"
+
+[node name="blast" type="Sprite2D" parent="." unique_id=193683512]
+visible = false
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+texture = ExtResource("2_6spbj")
+offset = Vector2(25, -8)
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="ChargeParticle" type="CPUParticles2D" parent="." unique_id=1474866017]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+position = Vector2(16, -9)
+emitting = false
+amount = 32
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 20.0
+gravity = Vector2(0, 0)
+radial_accel_min = -400.0
+radial_accel_max = -400.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_6spbj")
+color = Color(0.4509804, 0.9372549, 0.9098039, 1)
+
+[node name="AttackOrigin" type="Node2D" parent="." unique_id=1600021670]
+position = Vector2(16, -9)
+
+[node name="explosion" parent="." unique_id=1989496051 instance=ExtResource("4_pulj5")]
+position = Vector2(16, -9)
+color = Color(0.4509804, 0.9372549, 0.9098039, 1)
+
+[node name="Hurtbox" parent="." unique_id=950616467 node_paths=PackedStringArray("health") instance=ExtResource("6_628tr")]
+collision_layer = 8
+collision_mask = 4
+health = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=192650149]
+position = Vector2(3, -6.5)
+shape = SubResource("RectangleShape2D_hxjjt")
+debug_color = Color(3.1766297e-06, 0.6509103, 0.08133044, 0.41960785)
+
+[node name="Hitbox" parent="." unique_id=928187453 instance=ExtResource("7_74mb1")]
+collision_layer = 8
+collision_mask = 4
+damage = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=815593100]
+position = Vector2(3, -8.000001)
+rotation = 1.5730338
+shape = SubResource("CapsuleShape2D_hpwha")
+debug_color = Color(0.9999996, 0, 0.10890917, 0.41960785)
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1201682691 node_paths=PackedStringArray("character_body")]
+script = ExtResource("8_74mb1")
+character_body = NodePath("..")
+max_health = 60.0
+metadata/_custom_type_script = "uid://c25h8kc34r6l1"
+
+[node name="DeathComponent" type="Node" parent="." unique_id=374470139 node_paths=PackedStringArray("health_component", "character_body", "light")]
+script = ExtResource("9_hxjjt")
+health_component = NodePath("../HealthComponent")
+character_body = NodePath("..")
+light = NodePath("")
+explosion_scene = ExtResource("4_pulj5")
+metadata/_custom_type_script = "uid://dg18v6qoi5upl"
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1768161779]
+rect = Rect2(-243, -37, 486, 50)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2053607714]

@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://uk7i2tnorwlw"]
+
+[ext_resource type="Texture2D" uid="uid://dv8mvel01se2g" path="res://droid knight/sprites/furnace.png" id="1_aw3ub"]
+[ext_resource type="Script" uid="uid://sfp0strqsqp2" path="res://Scripts/furnace.gd" id="1_n6vqa"]
+[ext_resource type="PackedScene" uid="uid://cjirtotgw7k5r" path="res://Scenes/hitbox.tscn" id="2_71eup"]
+[ext_resource type="Shader" uid="uid://dpcuclfrya1u" path="res://Shaders/glow_effect.gdshader" id="2_y8rok"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q7se4"]
+shader = ExtResource("2_y8rok")
+
+[sub_resource type="Animation" id="Animation_71eup"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_q7se4"]
+resource_name = "always_on"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(64, 0, 16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_n6vqa"]
+resource_name = "fire"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 2.35, 2.4, 2.45, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 16, 16), Rect2(16, 0, 16, 16), Rect2(32, 0, 16, 16), Rect2(48, 0, 16, 16), Rect2(64, 0, 16, 16), Rect2(48, 0, 16, 16), Rect2(32, 0, 16, 16), Rect2(16, 0, 16, 16), Rect2(0, 0, 16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 2.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y8rok"]
+_data = {
+&"RESET": SubResource("Animation_71eup"),
+&"always_on": SubResource("Animation_q7se4"),
+&"fire": SubResource("Animation_n6vqa")
+}
+
+[sub_resource type="Curve" id="Curve_aw3ub"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.47191018), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_71eup"]
+offsets = PackedFloat32Array(0, 0.36419752, 0.66049385, 1)
+colors = PackedColorArray(0.8117647, 0.23529412, 0.05490196, 1, 0.98039216, 0.49019608, 0.03529412, 1, 1, 0.827451, 0.11372549, 1, 1, 0.827451, 0.11372549, 0.52156866)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw3ub"]
+size = Vector2(16, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71eup"]
+radius = 5.0
+height = 94.0
+
+[node name="furnace" type="StaticBody2D" unique_id=570784632 node_paths=PackedStringArray("animation_player", "visible_enabler")]
+z_index = 1
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_n6vqa")
+animation_player = NodePath("AnimationPlayer")
+visible_enabler = NodePath("VisibleOnScreenEnabler2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1431487251]
+material = SubResource("ShaderMaterial_q7se4")
+instance_shader_parameters/target_color_1 = Color(1, 0.827451, 0.11372549, 1)
+instance_shader_parameters/target_color_2 = Color(1, 0.827451, 0.11372549, 1)
+instance_shader_parameters/target_color_3 = Color(1, 0.827451, 0.11372549, 1)
+texture = ExtResource("1_aw3ub")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2000594606]
+libraries/ = SubResource("AnimationLibrary_y8rok")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=790587904]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+z_index = -1
+emitting = false
+amount = 1000
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 7.0
+gravity = Vector2(0, -800)
+radial_accel_min = -50.0
+radial_accel_max = -40.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_aw3ub")
+color_ramp = SubResource("Gradient_71eup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=296090140]
+shape = SubResource("RectangleShape2D_aw3ub")
+
+[node name="Hitbox" parent="." unique_id=928187453 instance=ExtResource("2_71eup")]
+collision_layer = 8
+collision_mask = 4
+damage = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1552107191]
+position = Vector2(0, -50)
+shape = SubResource("CapsuleShape2D_71eup")
+disabled = true
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=979479210]
+position = Vector2(0, 8)
+rect = Rect2(-82, -109, 164, 115)

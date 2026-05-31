@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ck6h3d0cxw7i2"]
+
+[ext_resource type="Script" uid="uid://d1jh6l2pkiiq2" path="res://Scripts/enemy_room.gd" id="1_8wn8j"]
+
+[node name="EnemyRoom" type="Area2D" unique_id=883965975]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_8wn8j")

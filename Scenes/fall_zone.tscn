@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://badlnflon5r3u"]
+
+[ext_resource type="Script" uid="uid://bs33or2213vuy" path="res://Scripts/fall_zone.gd" id="1_k5kej"]
+
+[node name="FallZone" type="Area2D" unique_id=1992427186 groups=["killzone"]]
+collision_mask = 12
+script = ExtResource("1_k5kej")

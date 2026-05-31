@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bdyb0k6uw3bnq"]
+
+[ext_resource type="Script" uid="uid://kpfvk01tueiu" path="res://Scripts/lever.gd" id="1_6kuia"]
+[ext_resource type="Texture2D" uid="uid://cea4hr8m55g0u" path="res://droid knight/sprites/lever.png" id="1_wv1st"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6kuia"]
+radius = 6.0
+height = 24.0
+
+[sub_resource type="Animation" id="Animation_6kuia"]
+resource_name = "green"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(16, 0, 16, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_fhlr4"]
+resource_name = "red"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jjeqf"]
+_data = {
+&"green": SubResource("Animation_6kuia"),
+&"red": SubResource("Animation_fhlr4")
+}
+
+[node name="lever" type="Area2D" unique_id=859613761]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_6kuia")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=12280688]
+texture = ExtResource("1_wv1st")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1528881243]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_6kuia")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=191466918]
+libraries/ = SubResource("AnimationLibrary_jjeqf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cgb4uf4324ibu"]
+
+[ext_resource type="Texture2D" uid="uid://c5hn57iw2kj7x" path="res://droid knight/sprites/light.png" id="1_veqsg"]
+[ext_resource type="Shader" uid="uid://dpcuclfrya1u" path="res://Shaders/glow_effect.gdshader" id="1_wh1uv"]
+[ext_resource type="Script" uid="uid://c1fxqriu6r08e" path="res://Scripts/light.gd" id="3_hsho4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hsho4"]
+shader = ExtResource("1_wh1uv")
+
+[sub_resource type="Gradient" id="Gradient_wh1uv"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hsho4"]
+gradient = SubResource("Gradient_wh1uv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[node name="light" type="Node2D" unique_id=1917330796]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2017681014]
+material = SubResource("ShaderMaterial_hsho4")
+instance_shader_parameters/target_color_1 = Color(1, 1, 1, 1)
+instance_shader_parameters/target_color_2 = Color(1, 1, 1, 1)
+instance_shader_parameters/target_color_3 = Color(1, 1, 1, 1)
+position = Vector2(0, 8)
+texture = ExtResource("1_veqsg")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1466391463]
+position = Vector2(7.1054274e-15, 2.9999998)
+scale = Vector2(10, 10)
+color = Color(0.7352464, 0.62495375, 1, 1)
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_hsho4")
+script = ExtResource("3_hsho4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="PointLight2D" unique_id=1055692443]
+scale = Vector2(3.5, 3.5)
+rect = Rect2(-10, -1.2, 20, 11.2)

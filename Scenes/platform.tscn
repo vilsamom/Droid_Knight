@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d3pks3cnbfk6o"]
+
+[ext_resource type="Texture2D" uid="uid://cxnb10s3gf11y" path="res://droid knight/sprites/platform.png" id="1_1rc8e"]
+[ext_resource type="Script" uid="uid://xi2c27yqr0xe" path="res://Scripts/platform.gd" id="1_n5262"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rc8e"]
+size = Vector2(48, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n5262"]
+polygon = PackedVector2Array(-23, -3, 23, -3, 23, 1, 21, 3, -21, 3, -23, 1)
+
+[node name="Platform" type="Path2D" unique_id=1282885316]
+script = ExtResource("1_n5262")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=260890165]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=1835436271]
+texture = ExtResource("1_1rc8e")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=992162407]
+position = Vector2(0, -9.094947e-13)
+shape = SubResource("RectangleShape2D_1rc8e")
+one_way_collision = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatableBody2D" unique_id=1274771783]
+occluder = SubResource("OccluderPolygon2D_n5262")
+occluder_light_mask = 3
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=1457036222]
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=1721296079]
+remote_path = NodePath("../../AnimatableBody2D")
+update_rotation = false
+update_scale = false

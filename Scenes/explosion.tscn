@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dmty8mcwiu8uo"]
+
+[sub_resource type="Curve" id="Curve_nlb0y"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="explosion" type="CPUParticles2D" unique_id=1989496051]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+emitting = false
+amount = 64
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 2.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_nlb0y")

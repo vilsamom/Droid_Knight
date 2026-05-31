@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dd7ov821lo7wv"]
+
+[ext_resource type="Script" uid="uid://bvb17hfoc0bf4" path="res://Scripts/reset_point.gd" id="1_1g2cy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb0iv"]
+size = Vector2(72, 57)
+
+[node name="reset_point" type="Area2D" unique_id=1884505472]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_1g2cy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1728089425]
+position = Vector2(0, -25.5)
+shape = SubResource("RectangleShape2D_vb0iv")
+
+[node name="RespawnPoint" type="Marker2D" parent="." unique_id=344312797]
+position = Vector2(0, -16)

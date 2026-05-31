@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c2hqu60va87p5"]
+
+[ext_resource type="Script" uid="uid://coyefnptth3b7" path="res://Scripts/aggro_area.gd" id="1_s268x"]
+
+[node name="AggroArea" type="Area2D" unique_id=761206209]
+script = ExtResource("1_s268x")

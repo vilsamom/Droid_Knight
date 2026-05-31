@@ -1,0 +1,266 @@
+[gd_scene format=3 uid="uid://iwg0vmhlsyaj"]
+
+[ext_resource type="Texture2D" uid="uid://3tkxls70bj07" path="res://droid knight/sprites/touch_buttons.png" id="1_poon4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjfjn"]
+atlas = ExtResource("1_poon4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3nib"]
+atlas = ExtResource("1_poon4")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3nib"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpyqi"]
+atlas = ExtResource("1_poon4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d52cv"]
+atlas = ExtResource("1_poon4")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d52cv"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndc1i"]
+atlas = ExtResource("1_poon4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tta51"]
+atlas = ExtResource("1_poon4")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tta51"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoo0d"]
+atlas = ExtResource("1_poon4")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acxg4"]
+atlas = ExtResource("1_poon4")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acxg4"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47shl"]
+atlas = ExtResource("1_poon4")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s5ca"]
+atlas = ExtResource("1_poon4")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s5ca"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oddf4"]
+atlas = ExtResource("1_poon4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otl0u"]
+atlas = ExtResource("1_poon4")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otl0u"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poon4"]
+atlas = ExtResource("1_poon4")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_156ty"]
+atlas = ExtResource("1_poon4")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjfjn"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umu26"]
+atlas = ExtResource("1_poon4")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nb52"]
+atlas = ExtResource("1_poon4")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnfoc"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67v41"]
+atlas = ExtResource("1_poon4")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlq78"]
+atlas = ExtResource("1_poon4")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqk4g"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a2km"]
+atlas = ExtResource("1_poon4")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pxhn"]
+atlas = ExtResource("1_poon4")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkd6i"]
+size = Vector2(16, 16)
+
+[node name="TouchControls" type="Control" unique_id=1294088049]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=579576882]
+
+[node name="movement" type="Control" parent="CanvasLayer" unique_id=1354881730]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+offset_bottom = -180.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="down" type="TouchScreenButton" parent="CanvasLayer/movement" unique_id=893315879]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.39215687)
+position = Vector2(52, 95)
+scale = Vector2(1.2, 1.2)
+texture_normal = SubResource("AtlasTexture_wjfjn")
+texture_pressed = SubResource("AtlasTexture_s3nib")
+shape = SubResource("RectangleShape2D_s3nib")
+action = "down"
+
+[node name="left" type="TouchScreenButton" parent="CanvasLayer/movement" unique_id=975270911]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.39215687)
+position = Vector2(26, 135)
+scale = Vector2(1.2, 1.2)
+texture_normal = SubResource("AtlasTexture_qpyqi")
+texture_pressed = SubResource("AtlasTexture_d52cv")
+shape = SubResource("RectangleShape2D_d52cv")
+action = "left"
+
+[node name="right" type="TouchScreenButton" parent="CanvasLayer/movement" unique_id=282798573]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.39215687)
+position = Vector2(77, 135)
+scale = Vector2(1.2, 1.2)
+texture_normal = SubResource("AtlasTexture_ndc1i")
+texture_pressed = SubResource("AtlasTexture_tta51")
+shape = SubResource("RectangleShape2D_tta51")
+action = "right"
+
+[node name="action" type="Control" parent="CanvasLayer" unique_id=640173691]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = -320.0
+offset_bottom = -180.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="attack" type="TouchScreenButton" parent="CanvasLayer/action" unique_id=1403741675]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.39215687)
+position = Vector2(209, 132)
+scale = Vector2(1.2, 1.2)
+texture_normal = SubResource("AtlasTexture_aoo0d")
+texture_pressed = SubResource("AtlasTexture_acxg4")
+shape = SubResource("RectangleShape2D_acxg4")
+action = "attack"
+
+[node name="dash" type="TouchScreenButton" parent="CanvasLayer/action" unique_id=2012678677]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.39215687)
+position = Vector2(254.00002, 90)
+scale = Vector2(1.2, 1.2)
+texture_normal = SubResource("AtlasTexture_47shl")
+texture_pressed = SubResource("AtlasTexture_0s5ca")
+shape = SubResource("RectangleShape2D_0s5ca")
+action = "dash"
+
+[node name="jump" type="TouchScreenButton" parent="CanvasLayer/action" unique_id=69383913]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.39215687)
+position = Vector2(254.00002, 132)
+scale = Vector2(1.2, 1.2)
+texture_normal = SubResource("AtlasTexture_oddf4")
+texture_pressed = SubResource("AtlasTexture_otl0u")
+shape = SubResource("RectangleShape2D_otl0u")
+action = "jump"
+
+[node name="pausebutton" type="Control" parent="CanvasLayer" unique_id=791472352]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_right = -160.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="pause" type="TouchScreenButton" parent="CanvasLayer/pausebutton" unique_id=134697669]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.39215687)
+position = Vector2(148, 4)
+scale = Vector2(0.75, 0.75)
+texture_normal = SubResource("AtlasTexture_poon4")
+texture_pressed = SubResource("AtlasTexture_156ty")
+shape = SubResource("RectangleShape2D_wjfjn")
+action = "pause"
+
+[node name="items" type="Control" parent="CanvasLayer" unique_id=130065997]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_right = -320.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="health" type="TouchScreenButton" parent="CanvasLayer/items" unique_id=1807371248]
+unique_name_in_owner = true
+position = Vector2(223, 5)
+scale = Vector2(1.5, 1.5)
+texture_normal = SubResource("AtlasTexture_umu26")
+texture_pressed = SubResource("AtlasTexture_4nb52")
+shape = SubResource("RectangleShape2D_pnfoc")
+
+[node name="power" type="TouchScreenButton" parent="CanvasLayer/items" unique_id=997470273]
+unique_name_in_owner = true
+position = Vector2(252, 5)
+scale = Vector2(1.5, 1.5)
+texture_normal = SubResource("AtlasTexture_67v41")
+texture_pressed = SubResource("AtlasTexture_xlq78")
+shape = SubResource("RectangleShape2D_uqk4g")
+
+[node name="shield" type="TouchScreenButton" parent="CanvasLayer/items" unique_id=2064504528]
+unique_name_in_owner = true
+position = Vector2(281, 5)
+scale = Vector2(1.5, 1.5)
+texture_normal = SubResource("AtlasTexture_3a2km")
+texture_pressed = SubResource("AtlasTexture_6pxhn")
+shape = SubResource("RectangleShape2D_mkd6i")

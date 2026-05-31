@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://ywuwuov3ymvb"]
+
+[ext_resource type="Script" uid="uid://sfma3xdi20of" path="res://Scripts/wave.gd" id="1_dv2ko"]
+[ext_resource type="Texture2D" uid="uid://dnha7nr0icbf" path="res://droid knight/sprites/slash_wave.png" id="1_pvwu5"]
+[ext_resource type="PackedScene" uid="uid://cjirtotgw7k5r" path="res://Scenes/hitbox.tscn" id="2_dv2ko"]
+[ext_resource type="PackedScene" uid="uid://dmty8mcwiu8uo" path="res://Scenes/explosion.tscn" id="4_33gei"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33gei"]
+atlas = ExtResource("1_pvwu5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y3rq"]
+atlas = ExtResource("1_pvwu5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o0t6"]
+atlas = ExtResource("1_pvwu5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c04pq"]
+atlas = ExtResource("1_pvwu5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uewcy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33gei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y3rq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o0t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c04pq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dv2ko"]
+size = Vector2(8, 8)
+
+[sub_resource type="Curve" id="Curve_dv2ko"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.516854), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttygv"]
+radius = 12.0
+height = 34.0
+
+[node name="wave" type="Area2D" unique_id=2060819492 node_paths=PackedStringArray("explosion")]
+collision_layer = 4
+script = ExtResource("1_dv2ko")
+explosion = NodePath("explosion")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=228646620]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+sprite_frames = SubResource("SpriteFrames_uewcy")
+autoplay = "default"
+frame_progress = 0.27901304
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1609495468]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_dv2ko")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=787275383]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+amount = 128
+lifetime = 0.5
+emission_shape = 6
+emission_ring_inner_radius = 0.8
+emission_ring_radius = 16.0
+particle_flag_align_y = true
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+linear_accel_min = 200.0
+linear_accel_max = 400.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_dv2ko")
+color = Color(1, 0, 0, 1)
+
+[node name="Hitbox" parent="." unique_id=928187453 instance=ExtResource("2_dv2ko")]
+collision_layer = 4
+collision_mask = 8
+damage = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=400870939]
+position = Vector2(4, 0)
+shape = SubResource("CapsuleShape2D_ttygv")
+debug_color = Color(1, 0.0067823445, 0.0772912, 0.41960785)
+
+[node name="explosion" parent="." unique_id=1989496051 instance=ExtResource("4_33gei")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1226346164]
+position = Vector2(6, 0)
+rect = Rect2(-52, -16, 62, 32)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

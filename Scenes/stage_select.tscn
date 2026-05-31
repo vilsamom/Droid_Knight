@@ -1,0 +1,479 @@
+[gd_scene format=3 uid="uid://r5bdnwrqcvhy"]
+
+[ext_resource type="Texture2D" uid="uid://bslokcdowelt8" path="res://droid knight/sprites/stage_button.png" id="1_bn3nu"]
+[ext_resource type="Script" uid="uid://bb34ludvfx83s" path="res://Scripts/stage_select.gd" id="1_rooga"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bn3nu"]
+font_color = Color(0.7019608, 0.7254902, 0.81960785, 1)
+outline_size = 4
+outline_color = Color(0.023529412, 0.023529412, 0.03137255, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rooga"]
+font_color = Color(1, 0.9882353, 0.2509804, 1)
+outline_size = 4
+outline_color = Color(0.023529412, 0.023529412, 0.03137255, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn3nu"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rooga"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x57uv"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x57uv"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha71x"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8554"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr52h"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uo12"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5r67"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrot8"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chusq"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfn3x"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04duf"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5v7c"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df131"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gbh4"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ohs3"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8hio"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg2f7"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd7go"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4rpm"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wncbv"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dae0"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_welbi"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ixd8"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yo51"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5j7a"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3i04"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g67id"]
+atlas = ExtResource("1_bn3nu")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p02uk"]
+size = Vector2(32, 32)
+
+[node name="StageSelect" type="Control" unique_id=1138904128]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rooga")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=90272556]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=327977124]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer" unique_id=2059934596]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer" unique_id=653816658]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer" unique_id=2029741359]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel2" unique_id=1712981662]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.0
+offset_right = 85.0
+offset_bottom = 24.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel2/MarginContainer" unique_id=2116108922]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Select" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer" unique_id=331414953]
+custom_minimum_size = Vector2(70, 20)
+layout_mode = 2
+text = "SELECT"
+autowrap_trim_flags = 0
+icon_alignment = 1
+
+[node name="Back" type="Button" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer" unique_id=1496222734]
+custom_minimum_size = Vector2(70, 20)
+layout_mode = 2
+text = "BACK"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer" unique_id=675151696]
+custom_minimum_size = Vector2(220, 110)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel" unique_id=1509046472]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=1582720006]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1895381604]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1688779949]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer3/MarginContainer" unique_id=2042220977]
+layout_mode = 2
+text = "STAGE: "
+label_settings = SubResource("LabelSettings_bn3nu")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=928544859]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StageName" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer3/MarginContainer2" unique_id=2005591275]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_rooga")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1191391100]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="Stage0" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1057527030]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage0" unique_id=775132757]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage0/MarginContainer" unique_id=963610297]
+texture = ExtResource("1_bn3nu")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Stage0" type="TouchScreenButton" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage0" unique_id=835295752]
+unique_name_in_owner = true
+texture_normal = SubResource("AtlasTexture_bn3nu")
+texture_pressed = SubResource("AtlasTexture_rooga")
+shape = SubResource("RectangleShape2D_x57uv")
+
+[node name="Stage1" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1131235]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage1" unique_id=64504100]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage1/MarginContainer" unique_id=1502564433]
+texture = ExtResource("1_bn3nu")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Stage1" type="TouchScreenButton" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage1" unique_id=1685049310]
+unique_name_in_owner = true
+texture_normal = SubResource("AtlasTexture_x57uv")
+texture_pressed = SubResource("AtlasTexture_ha71x")
+shape = SubResource("RectangleShape2D_r8554")
+
+[node name="Stage2" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=91939851]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage2" unique_id=2057084183]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage2/MarginContainer" unique_id=1357762070]
+texture = ExtResource("1_bn3nu")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Stage2" type="TouchScreenButton" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage2" unique_id=481507709]
+unique_name_in_owner = true
+texture_normal = SubResource("AtlasTexture_cr52h")
+texture_pressed = SubResource("AtlasTexture_7uo12")
+shape = SubResource("RectangleShape2D_b5r67")
+
+[node name="Stage3" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1360757479]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage3" unique_id=1978238827]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage3/MarginContainer" unique_id=628874934]
+texture = ExtResource("1_bn3nu")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Stage3" type="TouchScreenButton" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage3" unique_id=1581475277]
+unique_name_in_owner = true
+texture_normal = SubResource("AtlasTexture_hrot8")
+texture_pressed = SubResource("AtlasTexture_chusq")
+shape = SubResource("RectangleShape2D_qfn3x")
+
+[node name="Stage4" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1103597021]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage4" unique_id=1190139386]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage4/MarginContainer" unique_id=423163290]
+texture = ExtResource("1_bn3nu")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Stage4" type="TouchScreenButton" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage4" unique_id=1663816515]
+unique_name_in_owner = true
+texture_normal = SubResource("AtlasTexture_04duf")
+texture_pressed = SubResource("AtlasTexture_q5v7c")
+shape = SubResource("RectangleShape2D_df131")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1544927021]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="Stage5" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1447738250]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage5" unique_id=1071287062]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage5/MarginContainer" unique_id=308387299]
+texture = ExtResource("1_bn3nu")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Stage5" type="TouchScreenButton" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage5" unique_id=1097141816]
+unique_name_in_owner = true
+texture_normal = SubResource("AtlasTexture_2gbh4")
+texture_pressed = SubResource("AtlasTexture_5ohs3")
+shape = SubResource("RectangleShape2D_o8hio")
+
+[node name="Stage6" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=574473659]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage6" unique_id=1970889179]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage6/MarginContainer" unique_id=83785737]
+texture = ExtResource("1_bn3nu")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Stage6" type="TouchScreenButton" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage6" unique_id=1074080983]
+unique_name_in_owner = true
+texture_normal = SubResource("AtlasTexture_hg2f7")
+texture_pressed = SubResource("AtlasTexture_nd7go")
+shape = SubResource("RectangleShape2D_x4rpm")
+
+[node name="Stage7" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=957679311]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage7" unique_id=810851359]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage7/MarginContainer" unique_id=588565635]
+texture = ExtResource("1_bn3nu")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Stage7" type="TouchScreenButton" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage7" unique_id=1228939661]
+unique_name_in_owner = true
+texture_normal = SubResource("AtlasTexture_wncbv")
+texture_pressed = SubResource("AtlasTexture_2dae0")
+shape = SubResource("RectangleShape2D_welbi")
+
+[node name="Stage8" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1799889889]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage8" unique_id=1125441190]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage8/MarginContainer" unique_id=855573748]
+texture = ExtResource("1_bn3nu")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Stage8" type="TouchScreenButton" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage8" unique_id=430729401]
+unique_name_in_owner = true
+texture_normal = SubResource("AtlasTexture_6ixd8")
+texture_pressed = SubResource("AtlasTexture_7yo51")
+shape = SubResource("RectangleShape2D_s5j7a")
+
+[node name="Stage9" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1930612114]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage9" unique_id=2130957038]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage9/MarginContainer" unique_id=1657218605]
+texture = ExtResource("1_bn3nu")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Stage9" type="TouchScreenButton" parent="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage9" unique_id=1984155571]
+unique_name_in_owner = true
+texture_normal = SubResource("AtlasTexture_b3i04")
+texture_pressed = SubResource("AtlasTexture_g67id")
+shape = SubResource("RectangleShape2D_p02uk")
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/Select" to="." method="_on_select_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel2/MarginContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage0/Stage0" to="." method="_on_stage_0_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage1/Stage1" to="." method="_on_stage_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage2/Stage2" to="." method="_on_stage_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage3/Stage3" to="." method="_on_stage_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/Stage4/Stage4" to="." method="_on_stage_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage5/Stage5" to="." method="_on_stage_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage6/Stage6" to="." method="_on_stage_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage7/Stage7" to="." method="_on_stage_7_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage8/Stage8" to="." method="_on_stage_8_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/MarginContainer/VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Stage9/Stage9" to="." method="_on_stage_9_pressed"]

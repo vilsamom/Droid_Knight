@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://cfhe0erurnvvs"]
+
+[ext_resource type="Shader" uid="uid://dpcuclfrya1u" path="res://Shaders/glow_effect.gdshader" id="1_mmlcq"]
+[ext_resource type="Texture2D" uid="uid://b36be80jlub1p" path="res://droid knight/sprites/drone.png" id="1_ws5iu"]
+[ext_resource type="PackedScene" uid="uid://cjirtotgw7k5r" path="res://Scenes/hitbox.tscn" id="2_y2b23"]
+[ext_resource type="PackedScene" uid="uid://c62vjcpp6ca5o" path="res://Scenes/hurtbox.tscn" id="3_n202n"]
+[ext_resource type="Script" uid="uid://c25h8kc34r6l1" path="res://Scripts/health_component.gd" id="4_mmlcq"]
+[ext_resource type="Script" uid="uid://dg18v6qoi5upl" path="res://Scripts/death_component.gd" id="5_qhjr3"]
+[ext_resource type="PackedScene" uid="uid://dmty8mcwiu8uo" path="res://Scenes/explosion.tscn" id="6_n202n"]
+[ext_resource type="Script" uid="uid://c1fxqriu6r08e" path="res://Scripts/light.gd" id="8_qhjr3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n202n"]
+shader = ExtResource("1_mmlcq")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws5iu"]
+atlas = ExtResource("1_ws5iu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o36xs"]
+atlas = ExtResource("1_ws5iu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3b1v"]
+atlas = ExtResource("1_ws5iu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x74uf"]
+atlas = ExtResource("1_ws5iu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n202n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ws5iu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o36xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3b1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x74uf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2b23"]
+size = Vector2(22, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n202n"]
+size = Vector2(26, 11)
+
+[sub_resource type="Gradient" id="Gradient_ukyrk"]
+offsets = PackedFloat32Array(0, 0.52409637)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mmlcq"]
+gradient = SubResource("Gradient_ukyrk")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.7695652, 0.27391306)
+
+[node name="Drone" type="CharacterBody2D" unique_id=2014704271 groups=["enemy"]]
+material = SubResource("ShaderMaterial_n202n")
+collision_layer = 8
+collision_mask = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1390472767]
+sprite_frames = SubResource("SpriteFrames_n202n")
+autoplay = "default"
+frame_progress = 0.62824357
+
+[node name="Hitbox" parent="." unique_id=928187453 instance=ExtResource("2_y2b23")]
+collision_layer = 8
+collision_mask = 4
+damage = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1437459100]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_y2b23")
+debug_color = Color(0.9993934, 0, 0.12844995, 0.41960785)
+
+[node name="Hurtbox" parent="." unique_id=950616467 node_paths=PackedStringArray("health") instance=ExtResource("3_n202n")]
+collision_layer = 8
+collision_mask = 4
+health = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1380234048]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_n202n")
+debug_color = Color(0.106196724, 0.6482863, 0, 0.41960785)
+
+[node name="HealthComponent" type="Node" parent="." unique_id=306597884 node_paths=PackedStringArray("character_body")]
+script = ExtResource("4_mmlcq")
+character_body = NodePath("..")
+max_health = 30.0
+metadata/_custom_type_script = "uid://c25h8kc34r6l1"
+
+[node name="DeathComponent" type="Node" parent="." unique_id=298598103 node_paths=PackedStringArray("health_component", "character_body", "light")]
+script = ExtResource("5_qhjr3")
+health_component = NodePath("../HealthComponent")
+character_body = NodePath("..")
+light = NodePath("../PointLight2D")
+explosion_scene = ExtResource("6_n202n")
+linger_time = 0.0
+metadata/_custom_type_script = "uid://dg18v6qoi5upl"
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=2086185672]
+position = Vector2(0, 18)
+rect = Rect2(-36, -37, 72, 38)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1198298769]
+color = Color(0.8156863, 0.9137255, 1, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_mmlcq")
+script = ExtResource("8_qhjr3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="PointLight2D" unique_id=344105455]
+rect = Rect2(-36, -19, 72, 38)
